@@ -14,23 +14,23 @@ import { TextField } from '@mui/material';
 
 import ContactBg from '../../Resources/ContactBg.png'
 function Contact() {
-  // const nodemailer = require("nodemailer");
-  const [Message,setMessage]=React.useState({
-    name: '',
-    subject:'',
-    email: '',
-    message: '',  
-  })
+//   // const nodemailer = require("nodemailer");
+//   const [Message,setMessage]=React.useState({
+//     name: '',
+//     subject:'',
+//     email: '',
+//     message: '',  
+//   })
 
-  const handleChange=(e:any)=>{
-    setMessage({
-      ...Message,
-      [e.target.name]: e.target.value
-    });
+//   const handleChange=(e:any)=>{
+//     setMessage({
+//       ...Message,
+//       [e.target.name]: e.target.value
+//     });
     
-  }
+//   }
 
-console.log(Message)
+// console.log(Message)
 
 
 
@@ -123,13 +123,13 @@ console.log(Message)
         <p className='font-bold text-4xl relative left-[5vw] top-[10vh]  lg:w-[30vw] w-[50vw]'>Send me a message  </p>
         <div className='relative left-[5vw] top-[15vh]'>
     
-        <input type="text" name='name' onChange={handleChange} value={Message.name} id="first_name"  className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Name" required />
+        <input type="text" name='name'  id="first_name"  className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Name" required />
         <br />
-        <input type="text" name='email' onChange={handleChange}  value={Message.email} id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Your Email" required />
+        <input type="text" name='email'  id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Your Email" required />
         <br/>
-        <input type="text" name='subject' onChange={handleChange} value={Message.subject} id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Subject" required />
+        <input type="text" name='subject'  id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Subject" required />
         <br/>
-        <input type="text" name='message' onChange={handleChange} value={Message.message} id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[15vh] h-[20vh]  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] w-[62vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Message" required  />
+        <input type="text" name='message'  id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[15vh] h-[20vh]  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] w-[62vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Message" required  />
 
         </div>
         <br/>
