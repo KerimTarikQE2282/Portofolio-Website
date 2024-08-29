@@ -47,12 +47,12 @@ function AboutMe() {
         </div>
         </div>
       <p className='lg:text-xl font-bold relative left-[6vw] top-[3vh] w-[30vw]'>Skills </p>
-      <p className='lg:text-xl font-medium relative left-[6vw] w-[30vw] top-[5vh]'>React Js 90% </p>
-      <LinearProgress variant="determinate" value={90} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '6vh' }} />
-      <p className='lg:text-xl font-medium relative left-[6vw] w-[30vw] top-[8vh]'>Node Js 75% </p>
-      <LinearProgress variant="determinate" value={75} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '9vh' }} />
-      <p className='lg:text-xl font-medium relative left-[6vw] top-[10vh] w-[30vw]'>Express Js  80% </p>
-      <LinearProgress variant="determinate" value={80} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '11vh' }} />
+      <p className='lg:text-xl font-medium relative left-[6vw] w-[30vw] top-[5vh]'>React Js 100% </p>
+      <LinearProgress variant="determinate" value={100} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '6vh' }} />
+      <p className='lg:text-xl font-medium relative left-[6vw] w-[30vw] top-[8vh]'>Node Js 90% </p>
+      <LinearProgress variant="determinate" value={90} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '9vh' }} />
+      <p className='lg:text-xl font-medium relative left-[6vw] top-[10vh] w-[30vw]'>Express Js  100% </p>
+      <LinearProgress variant="determinate" value={100} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '11vh' }} />
       <p className='lg:text-xl font-medium relative left-[6vw] top-[12vh] w-[30vw]'>Mongo Db 80% </p>
       <LinearProgress variant="determinate" value={80} style={{ width: '70%', height: '1vh', position: 'relative', left: '6vw', top: '13vh' }} />
 </div>

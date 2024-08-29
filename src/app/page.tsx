@@ -7,6 +7,7 @@ import Work from './Components/LandingPageComponents/Work';
 import Contact from './Components/LandingPageComponents/Contact';
 import Header from './Components/Header';
 import Portofolio from './Components/LandingPageComponents/Portofolio';
+import MySkills from './Components/LandingPageComponents/MySkills';
 export const ComponentContext = React.createContext(1);
 
 function Page() {
@@ -98,7 +99,7 @@ function Page() {
           </div>
          
           <div ref={servicesRef} id="services">
-            <Services />
+            <MySkills />
           </div>
           <div ref={workRef} id="work">
             <Work />
