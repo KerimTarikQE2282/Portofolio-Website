@@ -91,10 +91,10 @@ function Page() {
         <div>
           
            </div>
-          <div ref={heroRef} id="hero-section" className=''>
+          <div ref={heroRef} id="hero-section" className='lg:h-screen h-[90vh]'>
             <HeroSection />
           </div>
-          <div ref={aboutMeRef} id="about-me" className='w-[97vw] overflow-auto'>
+          <div ref={aboutMeRef} id="about-me" className='w-[97vw] '>
             <AboutMe />
           </div>
          
