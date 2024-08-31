@@ -73,75 +73,94 @@ function Contact() {
 //     });
 // }
   return (
-    <div className='lg:h-[80vh] h-[190vh]  relative lg:top-0 top-[140vh]' id='Contact'>
-      
-      
-      <Image
-        src={ContactBg}
-        alt="Background Image"
-        layout="fill"
-        objectFit="cover"
+    <div className='lg:h-[80vh] h-[190vh] relative lg:top-0 top-[140vh]' id='Contact'>
+    <Image
+      src={ContactBg}
+      alt="Background Image"
+      layout="fill"
+      objectFit="cover"
+    />
+    
+    <div className='lg:w-[80vw] w-[90vw] lg:h-[70vh] bg-white relative lg:left-[10vw] left-[5vw] rounded-md top-[6vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg'>
+      <div className='lg:w-[40vw] w-full mb-10 lg:mb-0'>
+        <p className='font-bold text-4xl lg:text-5xl'>Get In Touch</p>
+        <p className='mt-8 lg:mt-16 lg:w-[35vw] text-gray-700'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, modi itaque! Id atque alias, dicta excepturi aspernatur necessitatibus temporibus qui quam, consectetur fugit laboriosam harum quisquam incidunt expedita vero. Ipsam?
+        </p>
         
-      />
-     
-      <div className='lg:w-[80vw] w-[87vw] lg:h-[70vh] bg-white relative lg:left-[10vw] left-[5vw] rounded-md top-[6vh] flex lg:flex-row h-[170vh] flex-col   '>
-        <div className=' w-[40vw]'>
-          <p className='font-bold text-5xl relative left-[10vw] top-[10vh]'>Get In Touch </p>
-          <p className='relative left-[5vw] top-[15vh] lg:w-[35vw] w-[70vw] font-normal'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-             Placeat, modi itaque! Id atque alias, dicta excepturi aspernatur necessitatibus temporibus qui quam, 
-             consectetur fugit laboriosam harum quisquam incidunt expedita vero. Ipsam?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-             Placeat, modi itaque! Id atque alias, dicta excepturi aspernatur necessitatibus temporibus qui quam, 
-             consectetur fugit laboriosam harum quisquam incidunt expedita vero. Ipsam?
-             </p>
-             <div className='relative left-[5vw] top-[20vh] w-[35vw] h-[20vh]'>
-  <div className='flex flex-col space-y-4'>
-    <div className='flex items-center space-x-2'>
-      <LocationOnIcon />
-      <p>Addis Abeba, Ethiopia</p>
-    </div>
-    <div className='flex items-center space-x-2'>
-      <PhoneAndroidIcon />
-      <p>(+251) 924 5695</p>
-    </div>
-    <div className='flex items-center space-x-2'>
-      <EmailIcon />
-      <p>Kerim.Tarik.Qe2282@gmail.com</p>
-    </div>
-  </div>
-  <div className='relative top-[5vh]'>
- <Link href={'#'}> <XIcon style={{ marginLeft: '1vw',width: '1.5vw', height: '1.5vw'}} /></Link>
- <Link href={'#'}><InstagramIcon  style={{ marginLeft: '1vw',width: '1.5vw', height: '1.5vw'}}/></Link>
- <Link href={'#'}><GitHubIcon style={{ marginLeft: '1vw',width: '1.5vw', height: '1.5vw'}}/></Link>
- <Link href={'#'}> <LinkedInIcon  style={{ marginLeft: '1vw',width: '1.5vw', height: '1.5vw'}}/></Link>
-
-  </div>
-</div>
-
+        <div className='mt-10 space-y-6'>
+          <div className='flex items-center space-x-2'>
+            <LocationOnIcon />
+            <p>Addis Abeba, Ethiopia</p>
+          </div>
+          <div className='flex items-center space-x-2'>
+            <PhoneAndroidIcon />
+            <p>(+251) 924 5695</p>
+          </div>
+          <div className='flex items-center space-x-2'>
+            <EmailIcon />
+            <p>Kerim.Tarik.Qe2282@gmail.com</p>
+          </div>
         </div>
-        <div className=' w-[40vw] relative lg:top-0 top-[25vh]'>
-        <p className='font-bold text-4xl relative left-[5vw] top-[10vh]  lg:w-[30vw] w-[50vw]'>Send me a message  </p>
-        <div className='relative left-[5vw] top-[15vh]'>
-    
-        <input type="text" name='name'  id="first_name"  className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Name" required />
-        <br />
-        <input type="text" name='email'  id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Your Email" required />
-        <br/>
-        <input type="text" name='subject'  id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[6vh] text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Subject" required />
-        <br/>
-        <input type="text" name='message'  id="first_name" className="bg-gray-50 border border-gray-300 lg:h-[15vh] h-[20vh]  text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block lg:w-[25vw] w-[62vw] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-white" placeholder="Message" required  />
-
+        
+        <div className='flex space-x-4 mt-8'>
+          <Link href={'#'}><XIcon className='w-6 h-6' /></Link>
+          <Link href={'#'}><InstagramIcon className='w-6 h-6' /></Link>
+          <Link href={'#'}><GitHubIcon className='w-6 h-6' /></Link>
+          <Link href={'#'}><LinkedInIcon className='w-6 h-6' /></Link>
         </div>
-        <br/>
-        <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 relative lg:left-[6vw] left-[5vw] top-[15vh]">Blue</button>
-</div>
-
       </div>
-    
-   <div className='h-10vh bg-blue-600 relative lg:top-[10vh] top-[15vh] pt-2 lg:h-[5vh] h-[7vh]'>
-<p className='lg:ml-[37vw] ml-[6vw] text-white'>© Kerim tarik Developments 2024 all Rights Reserved</p>
-   </div>
+      
+      <div className='lg:w-[40vw] w-full'>
+        <p className='font-bold text-3xl lg:text-4xl mb-6'>Send me a message</p>
+        
+        <form className='space-y-6'>
+          <input 
+            type="text" 
+            name='name' 
+            placeholder="Name" 
+            className="bg-gray-50 border border-gray-300 h-12 rounded-lg w-full px-4"
+            required 
+          />
+          
+          <input 
+            type="email" 
+            name='email' 
+            placeholder="Your Email" 
+            className="bg-gray-50 border border-gray-300 h-12 rounded-lg w-full px-4"
+            required 
+          />
+          
+          <input 
+            type="text" 
+            name='subject' 
+            placeholder="Subject" 
+            className="bg-gray-50 border border-gray-300 h-12 rounded-lg w-full px-4"
+            required 
+          />
+          
+          <textarea 
+            name='message' 
+            placeholder="Message" 
+            className="bg-gray-50 border border-gray-300 h-36 rounded-lg w-full px-4"
+            required 
+          ></textarea>
+        </form>
+        
+        <button 
+          type="button" 
+          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-8"
+        >
+          Send Message
+        </button>
+      </div>
     </div>
+  
+    <div className='h-16 bg-blue-600 flex justify-center items-center mt-16 lg:mt-10'>
+      <p className='text-white text-center'>© Kerim Tarik Developments 2024 all Rights Reserved</p>
+    </div>
+  </div>
+  
   )
 }
 

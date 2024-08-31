@@ -18,11 +18,11 @@ function HeroSection() {
       initial={{ y: '10vh' }} // Initial position - 50% of viewport height from the top
       animate={{ y: 0 }} // Final position - 0 (current position)
       transition={{ duration: 0.75 }}
-      className='lg:text-6xl text-white relative z-50 lg:left-[5vw] lg:top-[30vh] lg:w-[20vw] w-[80vw] text-5xl left-5 top-[65vh] '
+      className='lg:text-6xl text-white relative z-50 lg:left-[5vw] lg:top-[40vh] lg:w-[20vw] w-[80vw] text-5xl left-5 top-[65vh] '
     >
       Hi I'm Kerim
     </motion.p>     
-     <motion.div className='lg:text-4xl text-white relative z-50 lg:left-[5vw] lg:top-[35vh] lg:w-[40vw] w-[80vw]  text-4xl top-[67vh] left-[5vw]' initial={{ y: '10vh' }} // Initial position - 50% of viewport height from the top
+     <motion.div className='lg:text-4xl text-white relative z-50 lg:left-[5vw] lg:top-[45vh] lg:w-[40vw] w-[80vw]  text-4xl top-[67vh] left-[5vw]' initial={{ y: '10vh' }} // Initial position - 50% of viewport height from the top
       animate={{ y: 0 }} // Final position - 0 (current position)
       transition={{ duration: 1 }}>
      
@@ -40,7 +40,7 @@ function HeroSection() {
 
           </div>
           </motion.div>
-          <div className='lg:ml-[45vw] lg:h-[78vh] relative  h-[100vh]  lg:bottom-[15vh] bottom-[35vh]'>
+          <div className='lg:ml-[45vw] lg:h-[78vh] relative  h-[100vh]  lg:bottom-[0vh] bottom-[35vh]'>
           <Spline
         scene="https://prod.spline.design/8OzdqundiQQEYbX0/scene.splinecode" 
       />
