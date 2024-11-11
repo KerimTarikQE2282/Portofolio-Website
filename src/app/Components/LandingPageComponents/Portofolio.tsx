@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 function Portofolio() {
   return (
     <div className='h-[100vh] relative top-[30vh] lg:top-0' id='Portofolio' >
-        <p className='text-5xl font-bold  w-[25vw] relative left-[20vw] lg:left-[42.5vw] top-[8vh]'>Portofolio</p>
+        <p className='text-5xl font-bold  w-[25vw] relative left-[20vw] lg:left-[42.5vw] top-[8vh]'>My Projects</p>
        <div className=' relative top-[20vh]  w-[99vw] flex flex-row  flex-wrap
           '>
        <div className="group shadow-md rounded-lg lg:w-[30vw] w-[90vw] h-[55vh] ml-[3.5vw] lg:ml-[2.5vw] overflow-hidden  hover:h-[65vh] hover:lg:w-[30vw] transition-all duration-500 lg:mt-0 "><Image src={portofolio1} alt='image' className=' h-[40vh] object-cover transition-all duration-500'></Image>
@@ -56,3 +56,4 @@ function Portofolio() {
 }
 
 export default Portofolio
+//make chat gpt make this a mapped component rather than hard-coding  

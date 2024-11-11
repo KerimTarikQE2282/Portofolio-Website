@@ -98,9 +98,7 @@ function Page() {
             <AboutMe />
           </div>
          
-          <div ref={servicesRef} id="services">
-            <MySkills />
-          </div>
+        
           <div ref={workRef} id="work">
             <Work />
           </div>

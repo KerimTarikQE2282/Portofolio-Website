@@ -73,7 +73,7 @@ function Contact() {
 //     });
 // }
   return (
-    <div className='lg:h-[80vh] h-[190vh] relative lg:top-0 top-[140vh]' id='Contact'>
+    <div className='lg:h-[90vh] h-[190vh] relative lg:top-0 top-[140vh]' id='Contact'>
     <Image
       src={ContactBg}
       alt="Background Image"
@@ -81,7 +81,7 @@ function Contact() {
       objectFit="cover"
     />
     
-    <div className='lg:w-[80vw] w-[90vw] lg:h-[70vh] bg-white relative lg:left-[10vw] left-[5vw] rounded-md top-[6vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg'>
+    <div className='lg:w-[80vw] w-[90vw] lg:h-[80vh] bg-white relative lg:left-[10vw] left-[5vw] rounded-md top-[6vh] lg:top-[4vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg'>
       <div className='lg:w-[40vw] w-full mb-10 lg:mb-0'>
         <p className='font-bold text-4xl lg:text-5xl'>Get In Touch</p>
         <p className='mt-8 lg:mt-16 lg:w-[35vw] text-gray-700'>
@@ -91,7 +91,7 @@ function Contact() {
         <div className='mt-10 space-y-6'>
           <div className='flex items-center space-x-2'>
             <LocationOnIcon />
-            <p>Addis Abeba, Ethiopia</p>
+            <p>Addis Ababa, Ethiopia</p>
           </div>
           <div className='flex items-center space-x-2'>
             <PhoneAndroidIcon />
@@ -156,7 +156,7 @@ function Contact() {
       </div>
     </div>
   
-    <div className='h-16 bg-blue-600 flex justify-center items-center mt-16 lg:mt-10'>
+    <div className='h-16 lg:h-20 bg-blue-600 flex justify-center items-center mt-16 lg:mt-16'>
       <p className='text-white text-center'>© Kerim Tarik Developments 2024 all Rights Reserved</p>
     </div>
   </div>

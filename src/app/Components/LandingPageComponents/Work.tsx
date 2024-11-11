@@ -2,11 +2,11 @@ import Image from 'next/image'
 import React from 'react'
 import image from '../../Resources/WorksBg.png'
 import CountUp from 'react-countup';
-
+import TimeLine from '../SubCompoonents/TimeLine'
 function Work() {
   return (
-    <div className='relative lg:h-[70vh] h-[100vh] top-[30vh] lg:top-0' id='Work'>
-    
+    <div className='relative lg:h-[100vh] h-[100vh] top-[30vh] lg:top-0' id='Work'>
+    <div>
       <Image
         src={image}
         alt="Background Image"
@@ -14,7 +14,7 @@ function Work() {
         objectFit="cover"
         className='absolute'
       />
-        <p className='text-5xl font-bold text-white lg:w-[25vw] w-[10vw] relative lg:left-[38vw] left-[20vw] top-[8vh]'>Work Experience</p>
+        <p className='text-5xl font-bold text-white lg:w-[35vw] w-[10vw] relative lg:left-[38vw] left-[20vw] top-[8vh]'>Work Experience</p>
       <div className='flex lg:flex-row flex-col justify-evenly absolute lg:top-0 top-[15vh] left-0 w-full h-full'>
     
         <div>
@@ -44,6 +44,10 @@ function Work() {
          </div>
          </div>
          </div>
+      </div>
+      </div>
+      <div className='relative top-[25vh] left-[10vw] w-[80vw]'>
+      <TimeLine/>
       </div>
     </div>
   )
