@@ -39,8 +39,7 @@ function HeroSection() {
           </motion.div>
           <div className='lg:ml-[30vw] lg:h-[100vh] relative  h-[110vh]  lg:bottom-[40.5vh] bottom-[80vh]'>
           <Spline
-        scene="https://prod.spline.design/8OzdqundiQQEYbX0/scene.splinecode" 
-      />
+scene="https://prod.spline.design/8OzdqundiQQEYbX0/scene.splinecode"      />
       </div>
     </motion.div>
   );

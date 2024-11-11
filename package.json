@@ -14,7 +14,7 @@
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.15",
     "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^1.0.91",
+    "@splinetool/runtime": "^1.9.37",
     "@types/node": "20.12.2",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.23",
