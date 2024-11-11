@@ -12,17 +12,20 @@ function HeroSection() {
 
   
   return (
-    <motion.div className='lg:h-screen h-[180vh] relative  bg-black text-white'  initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>
+    <motion.div className='lg:h-screen h-[140vh] relative  bg-black text-white mb-[20vh]'  initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>
  
  
 
-<p className='lg:text-6xl text-white relative z-50 lg:left-[5vw] lg:top-[37vh] lg:w-[40vw] w-[90vw] text-5xl left-5 top-[90vh] flex flex-row gap-10'>
-<Image
-   className='lg:w-[5vw] lg:h-[5vw] h-[20vh]  w-[22vh] rounded-full'
-   src={myImage}
-   alt='pp'/> Hi I'm Kerim
-    </p>     
-     <motion.div className='lg:text-4xl text-white relative z-50 lg:left-[5vw] lg:top-[43vh] lg:w-[40vw] w-[80vw]  text-4xl top-[90vh] left-[5vw]' initial={{ y: '10vh' }} // Initial position - 50% of viewport height from the top
+ <div className='lg:text-6xl text-4xl text-white relative z-50 lg:left-[5vw] lg:top-[37vh] lg:w-[40vw] w-[90vw]  left-5 top-[70vh] flex flex-row gap-10'>
+  <Image
+     className='lg:w-[5vw] lg:h-[5vw] h-[10vh] w-[11.5vh] rounded-full'
+     src={myImage}
+     alt='pp'
+  />
+  <p className='relative top-5 lg:top-0'>Hi, I'm Kerim</p>
+</div>
+   
+     <motion.div className='lg:text-4xl text-white relative z-50 lg:left-[5vw] lg:top-[43vh] lg:w-[40vw] w-[80vw]  text-4xl top-[77vh] left-[5vw]' initial={{ y: '10vh' }} // Initial position - 50% of viewport height from the top
       animate={{ y: 0 }} // Final position - 0 (current position)
       transition={{ duration: 1 }}>
      
@@ -34,7 +37,7 @@ function HeroSection() {
 
           </div>
           </motion.div>
-          <div className='lg:ml-[30vw] lg:h-[100vh] relative  h-[110vh]  lg:bottom-[40.5vh] bottom-[75vh]'>
+          <div className='lg:ml-[30vw] lg:h-[100vh] relative  h-[110vh]  lg:bottom-[40.5vh] bottom-[80vh]'>
           <Spline
         scene="https://prod.spline.design/8OzdqundiQQEYbX0/scene.splinecode" 
       />

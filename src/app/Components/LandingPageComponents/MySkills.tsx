@@ -3,7 +3,7 @@ import { SiExpress, SiFigma, SiAdobeillustrator, SiAdobephotoshop,SiFlutter, SiG
 
 export default function MySkills() {
   return (
-    <div className="max-w-5xl mx-auto px-8 lg:w-[50vw]">
+    <div className="max-w-5xl mx-auto px-8 lg:w-[50vw] lg:mt-0 mt-30">
            <p className='lg:text-6xl text-5xl relative  ml-[20vw] top-[5vh]  lg:mb-36 mb-10 right-20 font-semibold '>My Tech Stack</p>
 
       <HoverEffect items={projects} />
