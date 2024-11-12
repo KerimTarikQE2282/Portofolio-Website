@@ -28,7 +28,7 @@ const portfolioItems = [
 
 function Portofolio() {
   return (
-    <div className='h-[100vh] relative top-[30vh] lg:top-0' id='Portofolio'>
+    <div className='h-[100vh] relative top-[40vh] lg:top-0 lg:bottom-[15vh]' id='Portofolio'>
       <p className='text-5xl font-bold w-[25vw] relative left-[20vw] lg:left-[42.5vw] top-[8vh]'>My Projects</p>
       <div className='relative top-[20vh] w-[99vw] flex flex-row flex-wrap'>
         {portfolioItems.map((item, index) => (

@@ -73,7 +73,7 @@ function Contact() {
 //     });
 // }
   return (
-    <div className='lg:h-[90vh] h-[190vh] relative lg:top-0 top-[140vh]' id='Contact'>
+    <div className='lg:h-[90vh] h-[190vh] relative lg:top-0 top-[170vh]' id='Contact'>
     <Image
       src={ContactBg}
       alt="Background Image"

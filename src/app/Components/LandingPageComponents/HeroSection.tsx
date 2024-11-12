@@ -39,7 +39,7 @@ function HeroSection() {
             As a computer science graduate with a keen interest in MERN stack development, my journey into web development has been both exciting and challenging. Mastering MongoDB, Express.js, React, and Node.js has empowered me to create dynamic and responsive web applications. The versatility of JavaScript across the stack allows me to build seamless user interfaces and robust backend services, enhancing my ability to craft efficient and modern web solutions. 
           </p>
           <div>
-          <div className='flex flex-col relative left-[85vw] lg:w-[8vw] lg:bottom-[50vh] gap-5'>
+          <div className='flex lg:flex-col flex-row relative lg:left-[85vw] lg:w-[8vw] lg:bottom-[50vh] gap-5 lg:mt-0 mt-10  '>
         <Link href={'https://www.linkedin.com/in/kerim-tarik-857a701b6/'} className='w-[5vw] h-[5vw] pl-10'><CiLinkedin />
         </Link>
         <Link href={'https://github.com/KerimTarikQE2282'} className='w-[5vw] h-[5vw] pl-10'><FaGithub />
