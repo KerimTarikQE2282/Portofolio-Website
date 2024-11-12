@@ -7,6 +7,11 @@ import { Typewriter } from 'react-simple-typewriter'
 import { motion } from "framer-motion"
 import Spline from '@splinetool/react-spline';
 import myImage from '../../Resources/myImage.png'
+import { CiLinkedin } from "react-icons/ci";
+import Link from 'next/link';
+import { FaGithub } from "react-icons/fa";
+import { FaSquareUpwork } from "react-icons/fa6";
+
 function HeroSection() {
   
 
@@ -34,14 +39,25 @@ function HeroSection() {
             As a computer science graduate with a keen interest in MERN stack development, my journey into web development has been both exciting and challenging. Mastering MongoDB, Express.js, React, and Node.js has empowered me to create dynamic and responsive web applications. The versatility of JavaScript across the stack allows me to build seamless user interfaces and robust backend services, enhancing my ability to craft efficient and modern web solutions. 
           </p>
           <div>
+          <div className='flex flex-col relative left-[85vw] lg:w-[8vw] lg:bottom-[50vh] gap-5'>
+        <Link href={'https://www.linkedin.com/in/kerim-tarik-857a701b6/'} className='w-[5vw] h-[5vw] pl-10'><CiLinkedin />
+        </Link>
+        <Link href={'https://github.com/KerimTarikQE2282'} className='w-[5vw] h-[5vw] pl-10'><FaGithub />
+        </Link>
+        <Link href={'https://www.upwork.com/freelancers/~01c46b10c25deabb4c?mp_source=share'} className='w-[5vw] h-[5vw] pl-10'> <FaSquareUpwork />
 
+        </Link>
+
+      </div>
           </div>
           </motion.div>
-          <div className='lg:ml-[30vw] lg:h-[100vh] relative  h-[110vh]  lg:bottom-[40.5vh] bottom-[80vh]'>
+          <div className='lg:ml-[30vw] lg:h-[100vh] relative  h-[110vh]  lg:bottom-[74.5vh] bottom-[80vh]'>
           <Spline
         scene="https://prod.spline.design/8OzdqundiQQEYbX0/scene.splinecode" 
       />
+      
       </div>
+     
     </motion.div>
   );
 }

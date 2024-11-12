@@ -7,8 +7,8 @@ export default function TimeLine() {
 if(year==1993){
     Accomplishments=(
         <div className='mt-[8vh] ml-[5vw]'>
-        <p className='text-2xl font-bold text-white'>Noteworthy achievement of Year 1993</p>
-        <p className='mt-[3vh] text-white'>
+        <p className='text-2xl font-bold text-black'>Noteworthy achievement of Year 1993</p>
+        <p className='mt-[3vh] text-black'>
         Our journey began at the University of Alberta, where initial studies on fair screening for at-risk drivers laid our foundation.
         </p>
     </div>
@@ -17,8 +17,8 @@ if(year==1993){
 else if(year==2001){
     Accomplishments=(
         <div className='mt-[8vh] ml-[5vw]'>
-        <p className='text-2xl font-bold text-white'>Noteworthy achievement of Year 2001</p>
-        <p className='mt-[3vh] text-white'>
+        <p className='text-2xl font-bold text-black'>Noteworthy achievement of Year 2001</p>
+        <p className='mt-[3vh] text-black'>
         Our journey began at the University of Alberta, where initial studies on fair screening for at-risk drivers laid our foundation.
         </p>
     </div>
@@ -27,8 +27,8 @@ else if(year==2001){
 else if(year==2015){
     Accomplishments=(
         <div className='mt-[8vh] ml-[5vw]'>
-        <p className='text-2xl font-bold text-white'>Noteworthy achievement of Year 2015</p>
-        <p className='mt-[3vh] text-white'>
+        <p className='text-2xl font-bold text-black'>Noteworthy achievement of Year 2015</p>
+        <p className='mt-[3vh] text-black'>
         Our journey began at the University of Alberta, where initial studies on fair screening for at-risk drivers laid our foundation.
         </p>
     </div>
