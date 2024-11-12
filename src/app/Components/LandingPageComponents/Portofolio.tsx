@@ -1,42 +1,39 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
+import { Button } from '@mui/material';
 import portofolio1 from '../../Resources/portfolio-details-1.jpg';
 import portofolio2 from '../../Resources/portfolio-details-2.jpg';
 import portofolio3 from '../../Resources/portfolio-details-3.jpg';
-import { Button } from '@mui/material';
 
 // Portfolio items data
 const portfolioItems = [
   {
     id: 1,
-    image:portofolio1,
+    image: portofolio1,
     title: 'Project Title 1',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
     buttons: ['App', 'Figma Design']
   },
   {
     id: 2,
-    image: portofolio1,
+    image: portofolio2,
     title: 'Project Title 2',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
     buttons: ['App', 'Figma Design']
   },
   {
     id: 3,
-    image: portofolio1,
+    image: portofolio3,
     title: 'Project Title 3',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...',
     buttons: ['App', 'Figma Design']
-  },
-  // Add more items as needed
+  }
 ];
 
 function Portofolio() {
   return (
-    <div className='h-[100vh] relative top-[30vh] lg:top-0' id='Portofolio'>
-      <p className='text-5xl font-bold w-[25vw] relative left-[20vw] lg:left-[42.5vw] top-[8vh]'>
-        My Projects
-      </p>
+    <div className='h-[100vh] relative top-[30vh] lg:top-0 overflow-hidden' id='Portofolio'>
+      <p className='text-5xl font-bold w-[25vw] relative left-[20vw] lg:left-[42.5vw] top-[8vh]'>My Projects</p>
       <div className='relative top-[20vh] w-[99vw] flex flex-row flex-wrap'>
         {portfolioItems.map((item) => (
           <div
