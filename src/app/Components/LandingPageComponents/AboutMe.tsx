@@ -1,69 +1,69 @@
-import { HoverEffect } from "../../Components/ui/card-hover-effect";
-import { SiExpress, SiFigma, SiAdobeillustrator, SiAdobephotoshop,SiFlutter, SiGit, SiDjango,SiPython  ,SiMongodb, SiNextdotjs, SiNodedotjs, SiReact } from "react-icons/si";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "../subcomponents/bento-grid"
+import {
+  IconClipboardCopy,
+  IconFileBroken,
+  IconSignature,
+  IconTableColumn,
+} from "@tabler/icons-react";
 
-export default function MySkills() {
+export default function BentoGridSecondDemo() {
   return (
-    <div className="max-w-5xl mx-auto px-8 lg:w-[50vw] lg:mt-0 mt-30 relative top-[50vh] lg:top-0">
-           <p className='lg:text-6xl lg:w-[30vw] text-5xl lg:ml-[13vw] relative  ml-[20vw] top-[5vh]  lg:mb-[10vh] mb-10 right-20 font-semibold lg:mt-[5vh] w-[90vw]'>My Tech Stack</p>
+    <>
+   
+               <p className='lg:text-6xl lg:w-[30vw] text-5xl lg:ml-[43vw] relative  ml-[20vw] top-[5vh]  lg:mb-[10vh] mb-10 right-20 font-semibold lg:mt-[5vh] w-[90vw]'>About Me</p>
 
-      <HoverEffect items={projects} />
-    </div>
+   
+    (<BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+      {items.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          description2={item.description2}
+          header={item.header}
+          className={item.className}
+          icon={item.icon} />
+      ))}
+    </BentoGrid>)
+    </>
   );
 }
-export const projects = [
+const Skeleton = () => (
+  <div
+    className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
+);
+const items = [
   {
-    text: "React.js",
-    Icon: SiReact
-},
-{
-  text: "Next.js",
-  Icon: SiNextdotjs
-},
-{
-  text: "Node JS",
-  Icon: SiNodedotjs
-},
-{
-  text: "Express",
-  Icon: SiExpress
-},
-{
-  text: "Python",
-  Icon: SiPython
-},
-{
-  text: "Django",
-  Icon: SiDjango
-},
-{
-  text: "MongoDB",
-  Icon: SiMongodb
-},
-{
-  text: "Illustrator",
-  Icon: SiAdobeillustrator
-},
-{
-  text: "PhotoShop",
-  Icon: SiAdobephotoshop
-},
-
-
-{
-  text: "Flutter",
-  Icon: SiFlutter
-},
-
-
-
-{
-    text: "Git",
-    Icon: SiGit
-},
-
-{
-    text: "Figma",
-    Icon: SiFigma
-},
- 
+    title: "My Journey",
+    description: "Background: I am Kerim Tarik, a computer science student from Ethiopia with an excellent GPA of 3.7. I attend Hilcoe School of Computer Science and University, where I also teach and assist due to my strong academic performance.",
+    description2:"Achievements: Represent your assistantship and teaching experience with something like a chalkboard or a mentor badge. Highlight your experience with technologies like Scikit-learn, React.js, and MongoDB.",
+    header: <Skeleton />,
+    className: "md:col-span-2",
+    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "My Values",
+    description: "Principles: I value hard work, integrity, and curiosity. These principles guide me as I work on projects like smart inventory systems and predictive analytics tools.",
+    description2:"Add items like a torch for enlightenment or a gear to represent problem-solving.",
+    header: <Skeleton />,
+    className: "md:col-span-1",
+    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "The Art of Design",
+    description: "Discover the beauty of thoughtful and functional design.",
+    header: <Skeleton />,
+    className: "md:col-span-1",
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "My Vision",
+    description:
+    "Future Goals: I aspire to pursue a master's degree at a top-tier university with exceptional education and low acceptance rates, such as Stanford or MIT, and work on groundbreaking technologies in AI and machine learning.",
+    description2:"Use a symbol like a graduate cap, a roadmap leading to prestigious universities, or futuristic tech icon",
+    header: <Skeleton />,
+    className: "md:col-span-2",
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+  },
 ];

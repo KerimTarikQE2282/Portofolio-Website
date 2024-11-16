@@ -1,13 +1,13 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
 import HeroSection from './Components/LandingPageComponents/HeroSection';
-import AboutMe from '@/app/Components/LandingPageComponents/AboutMe';
+import AboutMe from '@/app/Components/LandingPageComponents/TechStack';
 import Services from './Components/LandingPageComponents/Services';
 import Work from './Components/LandingPageComponents/Work';
 import Contact from './Components/LandingPageComponents/Contact';
 import Header from './Components/Header';
 import Portofolio from './Components/LandingPageComponents/Portofolio';
-import MySkills from './Components/LandingPageComponents/MySkills';
+import BentoGridSecondDemo from './Components/LandingPageComponents/AboutMe'
 export const ComponentContext = React.createContext(1);
 
 function Page() {
@@ -94,6 +94,10 @@ function Page() {
           <div ref={heroRef} id="hero-section" className='lg:h-screen h-[90vh]'>
             <HeroSection />
           </div>
+          <div ref={heroRef} id="hero-section" className='lg:h-screen h-[90vh]'>
+            <BentoGridSecondDemo />
+          </div>
+          
           <div ref={aboutMeRef} id="about-me" className='w-[97vw] '>
             <AboutMe />
           </div>
