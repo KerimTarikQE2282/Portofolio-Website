@@ -3,10 +3,10 @@ import { SiExpress, SiFigma, SiAdobeillustrator, SiAdobephotoshop,SiFlutter, SiG
 
 export default function MySkills() {
   return (
-    <div className="max-w-5xl mx-auto px-8 lg:w-[62.5vw] lg:mt-0 mt-30 relative top-[50vh] lg:top-[15vh]">
+    <div className="max-w-5xl mx-auto px-8 lg:w-[62.5vw] lg:mt-0 mt-30 relative top-[100vh] lg:top-[15vh]">
            <p className='lg:text-6xl lg:w-[30vw] text-5xl lg:ml-[20vw] relative  ml-[20vw] top-[5vh]  lg:mb-[10vh] mb-10 right-20 font-semibold lg:mt-[5vh] w-[90vw]'>My Tech Stack</p>
 
-      <HoverEffect items={projects} />
+      <HoverEffect items={projects} className="lg:ml-8"/>
     </div>
   );
 }

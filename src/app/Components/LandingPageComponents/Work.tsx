@@ -8,8 +8,8 @@ import { FaBusinessTime } from "react-icons/fa";
 
 const Work = () => {
   return (
-    <div>
-      <p className='relative text-5xl font-bold lg:ml-[33vw] ml-10 lg:w-[35vw] mt-[25vh] lg:mb-[5vh] w-[100vw]'>
+    <div className='relative lg:top-0 top-[80vh]'>
+      <p className='relative text-5xl font-bold lg:ml-[33vw] ml-10 lg:w-[35vw] mt-[25vh] lg:mb-[5vh] w-[100vw] '>
         My Work Experience
       </p>
 

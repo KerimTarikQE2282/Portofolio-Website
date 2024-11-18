@@ -9,7 +9,7 @@ import {
 
 export default function BentoGridSecondDemo() {
   return (
-    <>
+    <div className="relative lg:top-0 top-[50vh]">
    
                <p className='lg:text-6xl lg:w-[30vw] text-5xl lg:ml-[43vw] relative  ml-[20vw] top-[5vh]  lg:mb-[10vh] mb-10 right-20 font-semibold lg:mt-[5vh] w-[90vw]'>About Me</p>
 
@@ -26,7 +26,7 @@ export default function BentoGridSecondDemo() {
           icon={item.icon} />
       ))}
     </BentoGrid>)
-    </>
+    </div>
   );
 }
 const Skeleton = () => (

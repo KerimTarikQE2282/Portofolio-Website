@@ -8,7 +8,7 @@ import portfolio1 from '../../Resources/portfolio-details-1.jpg';
 export default function Portfolio() {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[20vw] lg:w-[30vw] h-auto rounded-xl p-6 border">
+      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[90vw] lg:w-[30vw] h-auto rounded-xl p-6 border lg:ml-0 ml-10">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
