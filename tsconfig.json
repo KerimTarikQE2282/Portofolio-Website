@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "src/app/lib/utils.ts", "src/app/Components/LandingPageComponents/Portofolio.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "src/app/lib/utils.ts", "src/app/Components/LandingPageComponents/Portofolio.jsx", "src/app/Components/ui/card-hover-effect.jsx", "src/app/Components/subcomponents/3d-card.js"],
   "exclude": ["node_modules"]
 }

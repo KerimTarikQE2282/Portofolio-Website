@@ -1,4 +1,4 @@
-import { HoverEffect } from "../ui/card-hover-effect";
+import { HoverEffect } from "../ui/card-hover";
 import { SiExpress, SiFigma, SiAdobeillustrator, SiAdobephotoshop,SiFlutter, SiGit, SiDjango,SiPython  ,SiMongodb, SiNextdotjs, SiNodedotjs, SiReact } from "react-icons/si";
 
 export default function MySkills() {
