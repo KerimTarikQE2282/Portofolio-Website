@@ -3,6 +3,8 @@ import React from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ArrowBigDownDash } from 'lucide-react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 function Hero() {
     const WelcomeSection=React.useRef(null);
     const Skills1=React.useRef(null)
@@ -10,6 +12,7 @@ function Hero() {
     const Skills3=React.useRef(null)
     const me=React.useRef(null)
     const scrollBall=React.useRef(null)
+    const pp=React.useRef();
     useGSAP(()=>{
         // gsap.fromTo(WelcomeSection.current,
         //     {scaleX:0,transformOrigin:"center"},
@@ -20,16 +23,44 @@ function Hero() {
         var tl=gsap.timeline()
             tl.from(WelcomeSection.current,{scaleX:0,transformOrigin:"center",opacity:0}),
             tl.to(WelcomeSection.current,{scaleX:1,duration:0.5}),
-            tl.to(WelcomeSection.current,{y:-1000,duration:0.5,delay:3})
+            tl.to(WelcomeSection.current,{y:-1000,duration:0.5,delay:1})
         gsap.to(Skills1.current,{x:-1000,y:-1000,duration:90,repeat:100})
         gsap.to(Skills2.current,{x:-1000,y:-1000,duration:90,repeat:100})
         gsap.to(Skills3.current,{x:-1000,y:-1000,duration:90,repeat:100})
-        gsap.fromTo(
+        var t2=gsap.timeline()
+        gsap.registerPlugin(ScrollTrigger) 
+        t2.fromTo(
             me.current,
             { opacity: 0 }, // Start with opacity 0
-            { opacity: 1, duration: 1, delay: 4 } // End with opacity 1 over 3 seconds after a 5-second delay
+            { opacity: 1, duration: 1, delay: 2 } // End with opacity 1 over 3 seconds after a 5-second delay
           );
-       gsap.to(scrollBall.current,{y:10,repeat:-1,duration:2})
+          t2.to(me.current, {
+                          
+                          
+            y: 520,                 
+            fontWeight: "lighter",  
+            backgroundColor: "white", 
+            fontSize: "5px",       
+            color: "black",        
+           // width: "20vw",
+           // opacity:0, 
+            duration:10,        
+            scrollTrigger:{
+              trigger:me.current,
+              start:"bottom center",
+              end:"bottom 200px",
+              scrub:2,
+              //markers:true,
+             // delay:2,
+              //pin:true,
+              toggleActions:"restart pause reverse pause " 
+            }  
+                    
+          });
+          
+          
+          
+       gsap.to(scrollBall.current,{y:10,repeat:-1,duration:1})
     })
   return (
     <div className='h-[100vh]'>
@@ -45,12 +76,12 @@ function Hero() {
   </p>
 </div>
 
-       <div className='h-[30vh] text-center font-bold text-8xl bg-black text-white  py-[8vh] w-full relative bottom-[70vh]' ref={WelcomeSection}><p>Welcome</p></div> 
-       <div className='h-[30vh] text-center font-bold text-8xl w-[60vw] ml-[17vw] rounded-lg p-0 bg-black relative bottom-[95vh] text-white opacity-0 flex flex-col items-center justify-center' ref={me}>
-  <div className='bg-white rounded-full h-[150px] w-[150px] relative top-8 right-[23vw] '>.</div>
-  <p className='text-7xl font-bold text-center relative bottom-[10vh] left-[5vw]'>I'm Kerim Tarik</p>
+       <div className='h-[30vh] text-center font-bold text-8xl bg-black text-white  py-[8vh] w-full relative bottom-[70vh] scale-x-0' ref={WelcomeSection}><p>Welcome</p></div> 
+       <div className='h-[30vh] text-center font-bold text-8xl w-[60vw] ml-[17vw] rounded-lg p-0 bg-black relative bottom-[95vh] text-white opacity-0 flex flex-col ' ref={me}>
+  <div className='bg-black rounded-full h-[150px] w-[150px] relative top-8 left-10 ' ref={pp}>.</div>
+  <p className='text-7xl font-bold relative bottom-[10vh] '>Hi,I'm Kerim </p>
 </div>
-            <div className='relative bottom-[75vh] left-[45vw]  w-[30vw]'>
+            <div className='relative bottom-[80vh] left-[45vw]  w-[30vw]'>
                 <p>Scroll Down</p>
                 <ArrowBigDownDash className='w-11 h-11 ml-5 mt-3' ref={scrollBall}/>
            

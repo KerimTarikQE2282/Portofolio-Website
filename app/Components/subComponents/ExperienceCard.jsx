@@ -1,31 +1,22 @@
-const ExperienceCard = () => {
+import { ArrowRight } from 'lucide-react';
+
+
+const ExperienceCard = ({place}) => {
     return (
-      <div className="p-6 bg-black text-white rounded-lg border border-gray-800 shadow-md max-w-sm ml-24">
-        <div className="text-purple-500 text-4xl font-bold">2023</div>
-        <div className="text-gray-400 text-sm">1 year</div>
-        <h2 className="text-xl font-bold mt-4">Junior Full Stack Developer</h2>
-        <p className="text-gray-400 mt-1">
-          Automotive Industry <span className="text-red-500">•</span> Regensburg, Germany
-        </p>
-        <p className="text-gray-400 mt-4">
-          Currently in vocational training while developing digital tools and applications for the automotive industry.
-        </p>
-        <ul className="mt-4 space-y-2">
-          <li className="flex items-center">
-            <span className="text-red-500 mr-2">→</span> Leading development team of 3 engineers
-          </li>
-          <li className="flex items-center">
-            <span className="text-red-500 mr-2">→</span> Developed simulation software for industrial screw controllers
-          </li>
-          <li className="flex items-center">
-            <span className="text-red-500 mr-2">→</span> Implemented AI-driven solutions for management systems
-          </li>
-        </ul>
-        <div className="flex gap-2 mt-4">
-          <span className="bg-gray-800 px-3 py-1 rounded-full text-sm">C#</span>
-          <span className="bg-gray-800 px-3 py-1 rounded-full text-sm">Python</span>
-          <span className="bg-gray-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
-        </div>
+      <div className={`text-white bg-black p-10 w-[30vw] h-[50vh] relative rounded-md flex flex-col gap-2 ${place==='right' && 'left-[25vw]'}`}>
+        <p className='text-4xl text-blue-600'>2023</p>
+        <p> full stack developer</p>
+        <p> Adika taxi</p> 
+        <p className='font-extralight'>Lorrewmineaodnwaodnwjoandklwan dwanidkwanmkldmwnako j dwkandkwnalmd manck waklcnlkwqn kmnc wqk jaj nwqjwcjkwqn jkdx qw</p>
+        <p className='flex flex-row mt-3'><ArrowRight /> Responsible for....</p>
+       <div className='flex flex-row gap-5 w-[40vw] flex-wrap mt-5'>
+        <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+    <p className='text-black'>React</p>
+</div>
+<div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+    <p className='text-black'>React</p>
+</div>
+</div>
       </div>
     );
   };
