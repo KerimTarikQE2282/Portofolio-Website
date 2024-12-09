@@ -113,44 +113,79 @@ function Timeline() {
   })
 
   return (
-   <div>
+    <div>
     <p className='font-bold text-6xl text-center mb-[15vh]'>Work Experience</p>
-     <div className='flex flex-row  overflow-hidden'>
-      <div ref={timeLineContainer}  >
-      <hr  className='w-1 h-1 bg-black relative left-[40vw] mb-[10vh] bottom-10 'ref={Time}/>
+    <div className='flex flex-row overflow-hidden'>
+      <div ref={timeLineContainer}>
+        <hr
+          className='w-1 h-1 bg-black relative left-[40vw] mb-[10vh] bottom-10'
+          ref={Time}
+        />
       </div>
       <div className='flex flex-col gap-20'>
-      <div ref={card1} className=' relative left-[30vw]'>
-        <div ref={card1}>
-        <ExperienceCard place={"left"} />
+        {/* Work Experience 1 */}
+        <div ref={card1} className='relative left-[30vw]'>
+          <div>
+            <ExperienceCard
+              place={'left'}
+              title="Instructor at Hilcoe School of Computer Science"
+              description="Taught undergraduate courses on web development, machine learning, and database management, leveraging industry-relevant tools like React.js, MongoDB, and Scikit-learn."
+              duration="2024 - Present"
+            />
+          </div>
+          <div
+            className='h-1 w-0 relative left-[30vw] bottom-[20vh] bg-black'
+            ref={leftToRight1}
+          />
         </div>
-     
-     <div className='h-1 w-0 relative left-[30vw] bottom-[20vh]  bg-black' ref={leftToRight1}/>
-     </div>
-     <div > 
-     <div  className=' relative ' ref={card2}>
-      <ExperienceCard place={"right"}/>
-     </div>
-     <div className='h-1 w-0 relative bottom-[20vh] left-[40vw]  bg-black'ref={leftToRight2} />
-     </div>
-     {/* /////////////////////////////////// */}
-     <div ref={card3} className=' relative left-[30vw]'>
-        <div ref={card3}>
-        <ExperienceCard place={"left"} />
+        {/* Work Experience 2 */}
+        <div>
+          <div className='relative' ref={card2}>
+            <ExperienceCard
+              place={'right'}
+              title="Developer at MindStack Inventory Management System"
+              description="Developed a smart inventory system using the MERN stack and integrated AI for sales prediction and stock optimization."
+              duration="2023 - 2024"
+            />
+          </div>
+          <div
+            className='h-1 w-0 relative bottom-[20vh] left-[40vw] bg-black'
+            ref={leftToRight2}
+          />
         </div>
-     
-     <div className='h-1 w-0 relative left-[30vw] bottom-[20vh]  bg-black' ref={leftToRight3}/>
-     </div>
-    {/* /////////////////////////////// */}
-    <div > 
-     <div  className=' relative ' ref={card4}>
-      <ExperienceCard place={"right"}/>
-     </div>
-     <div className='h-1 w-0 relative bottom-[20vh] left-[40vw]  bg-black'ref={leftToRight4} />
-     </div>
-     </div>
+        {/* Work Experience 3 */}
+        <div ref={card3} className='relative left-[30vw]'>
+          <div>
+            <ExperienceCard
+              place={'left'}
+              title="Machine Learning Developer"
+              description="Designed regression models to predict sales trends using Scikit-learn, optimizing inventory management processes."
+              duration="2023 - 2024"
+            />
+          </div>
+          <div
+            className='h-1 w-0 relative left-[30vw] bottom-[20vh] bg-black'
+            ref={leftToRight3}
+          />
+        </div>
+        {/* Work Experience 4 */}
+        <div>
+          <div className='relative' ref={card4}>
+            <ExperienceCard
+              place={'right'}
+              title="Assistantship at Hilcoe School of Computer Science"
+              description="Assisted in research projects, mentoring students, and developing course materials for advanced programming topics."
+              duration="2022 - 2023"
+            />
+          </div>
+          <div
+            className='h-1 w-0 relative bottom-[20vh] left-[40vw] bg-black'
+            ref={leftToRight4}
+          />
+        </div>
+      </div>
     </div>
-   </div>
+  </div>
   ) 
 }
 

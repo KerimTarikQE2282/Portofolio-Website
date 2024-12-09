@@ -1,25 +1,47 @@
 import { ArrowRight } from 'lucide-react';
+import { useMemo } from 'react';
 
+const ExperienceCard = ({ place, title, description, duration }) => {
+  // Generate a random color using useMemo to ensure it stays consistent for each render
+  const randomColor = useMemo(() => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }, []);
 
-const ExperienceCard = ({place}) => {
-    return (
-      <div className={`text-white bg-black p-10 w-[30vw] h-[50vh] relative rounded-md flex flex-col gap-2 ${place==='right' && 'left-[25vw]'}`}>
-        <p className='text-4xl text-blue-600'>2023</p>
-        <p> full stack developer</p>
-        <p> Adika taxi</p> 
-        <p className='font-extralight'>Lorrewmineaodnwaodnwjoandklwan dwanidkwanmkldmwnako j dwkandkwnalmd manck waklcnlkwqn kmnc wqk jaj nwqjwcjkwqn jkdx qw</p>
-        <p className='flex flex-row mt-3'><ArrowRight /> Responsible for....</p>
-       <div className='flex flex-row gap-5 w-[40vw] flex-wrap mt-5'>
+  return (
+    <div
+      className={`text-white bg-black p-10 w-[30vw] relative rounded-md flex flex-col gap-4 ${
+        place === 'right' && 'left-[25vw]'
+      }`}
+      style={{ minHeight: 'fit-content' }} // Ensures height grows to fit content
+    >
+      {/* Apply random color to the year */}
+      <p className='text-4xl' style={{ color: randomColor }}>
+        {duration}
+      </p>
+      <p className='text-2xl font-bold'>{title}</p>
+      <p className='font-light'>{description}</p>
+      <p className='flex flex-row items-center mt-3'>
+        <ArrowRight /> Key responsibilities...
+      </p>
+      <div className='flex flex-row gap-5 w-full flex-wrap mt-5'>
+        {/* Skill badges */}
         <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
-    <p className='text-black'>React</p>
-</div>
-<div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
-    <p className='text-black'>React</p>
-</div>
-</div>
+          <p className='text-black'>React</p>
+        </div>
+        <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+          <p className='text-black'>MongoDB</p>
+        </div>
+        <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+          <p className='text-black'>Node.js</p>
+        </div>
       </div>
-    );
-  };
-  
-  export default ExperienceCard;
-  
+    </div>
+  );
+};
+
+export default ExperienceCard;
