@@ -2,9 +2,10 @@ import React from 'react'
 import Auora from '../../../Resources/Auora.png'
 import Image from 'next/image'
 
-export default function Project_card() {
+export default function Project_card({image,title,description,usedTech}) {
+  console.log(usedTech);
   return (
-    <div className="relative flex items-center justify-center h-[70vh] ">
+    <div className="relative flex items-center justify-center h-[70vh] w-full">
        
     {/* Left Section */}
     <div className="flex flex-col justify-center text-left w-1/2  px-10">
@@ -19,19 +20,19 @@ export default function Project_card() {
 
       {/* Project Title */}
       <h1 className="text-6xl font-bold mt-4">
-        Modern E-<br />
-        commerce
+      {title}
       </h1>
 
       {/* Project Description */}
       <p className=" text-lg mt-4">
-        Full-featured e-commerce platform with real-time inventory, AI product
-        recommendations, and seamless checkout experience.
+        {description}
       </p>
 
       {/* Technology Tags */}
       <div className="flex flex-wrap gap-2 mt-6">
-        {["React", "Node.js", "Stripe", "MongoDB"].map((tech) => (
+        {
+        
+        usedTech.map((tech) => (
           <span
             key={tech}
             className="px-4 py-2 text-sm font-medium border border-gray-500 rounded-full hover:bg-gray-800"
@@ -50,9 +51,9 @@ export default function Project_card() {
     {/* Right Section */}
     <div className="w-1/2 h-full relative">
       <Image
-        src={Auora}
+        src={image}
         alt="Earth from space"
-        className="object-cover w-full h-full rounded-lg"
+        className="object-cover w-full h-full rounded-lg hover:scale-x-105 transition-all" 
       />
     </div>
    
