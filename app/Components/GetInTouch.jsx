@@ -43,7 +43,7 @@ function Contact() {
   };
 
   return (
-    <div className="lg:h-[90vh] h-[190vh] relative lg:top-0 top-[90vh]" id="Contact">
+    <div className="lg:h-[90vh] h-[100vh] relative lg:top-0 top-[-15vh] " id="Contact">
       <div className="lg:w-[80vw] w-[90vw] lg:h-[80vh] bg-white relative lg:left-[10vw] left-[5vw] rounded-md top-[6vh] lg:top-[4vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg">
         <div className="lg:w-[40vw] w-full mb-10 lg:mb-0">
           <p className="font-bold text-4xl lg:text-5xl">Get In Touch</p>

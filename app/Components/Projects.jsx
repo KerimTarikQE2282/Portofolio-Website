@@ -28,7 +28,6 @@ function Projects() {
             trigger:element,
             start:"top 80%",
             end:"top +50",
-            markers:true,
             scrub:1,}
         }
 
