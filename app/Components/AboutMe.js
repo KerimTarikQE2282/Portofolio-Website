@@ -227,19 +227,19 @@ function AboutMe() {
             <p className='text-2xl mt-[5vh]'>Services</p>
            <div className='flex flex-row gap-1 mt-3 ' ref={Service1} >
            <ArrowRight />
-           <p>Make amazing react websites</p>
+           <p>Make amazing react Native Expo Apps</p>
            </div>
            <div className='flex flex-row gap-1 mt-3 ' ref={Service2}>
            <ArrowRight />
-           <p>Make amazing react websites</p>
+           <p>Make amazing react Websites and WebApps</p>
            </div>
            <div className='flex flex-row gap-1 mt-3 '   ref={Service3}>
            <ArrowRight />
-           <p>Make amazing react websites</p>
+           <p>Make amazing Next Js websites and Web Apps</p>
            </div>
            <div className='flex flex-row gap-1 mt-3 ' ref={Service4}>
            <ArrowRight />
-           <p>Make amazing react websites</p>
+           <p>Make amazing Express and Node Backends with MongoDb websites</p>
            </div>
            
             
