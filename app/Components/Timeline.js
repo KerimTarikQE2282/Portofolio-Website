@@ -18,7 +18,7 @@ function Timeline() {
 
   useGSAP(()=>{
     gsap.registerPlugin(ScrollTrigger) 
-
+    let mm=gsap.matchMedia()
     gsap.to(Time.current, {
       height: "250vh", 
       scrollTrigger: {
@@ -91,6 +91,17 @@ function Timeline() {
         scrub:1
       },
     })
+    mm.add("(max-width:300px)", () => {
+      gsap.to(card2.current,  {
+        left: "0vw",
+        scrollTrigger: {
+          trigger: card3.current,
+          start: "top bottom", // When the animation starts
+          end: "top 900vh", // End when the bottom of the trigger reaches 100vh from the bottom of the viewport
+          scrub:1
+        },
+      })
+    })
     gsap.to(card3.current,  {
       left: "0vw",
       scrollTrigger: {
@@ -109,11 +120,21 @@ function Timeline() {
         scrub:1
       },
     })
-  
+    mm.add("(max-width:300px)", () => {
+      gsap.to(card4.current,  {
+        left: "0vw",
+        scrollTrigger: {
+          trigger: card3.current,
+          start: "top bottom", // When the animation starts
+          end: "top 900vh", // End when the bottom of the trigger reaches 100vh from the bottom of the viewport
+          scrub:1
+        },
+      })
+    })
   })
 
   return (
-    <div>
+    <div className='lg:mt-[10vh]'>
     <p className='font-bold text-6xl text-center mb-[15vh]'>Work Experience</p>
     <div className='flex flex-row overflow-hidden'>
       <div ref={timeLineContainer}>
@@ -134,7 +155,7 @@ function Timeline() {
             />
           </div>
           <div
-            className='h-1 w-0 relative left-[30vw] bottom-[20vh] bg-black'
+            className='h-1 w-0 relative left-[30vw] bottom-[20vh] bg-black lg:display-block display-none'
             ref={leftToRight1}
           />
         </div>
@@ -149,7 +170,7 @@ function Timeline() {
             />
           </div>
           <div
-            className='h-1 w-0 relative bottom-[20vh] left-[40vw] bg-black'
+            className='h-1 w-0 relative bottom-[20vh] left-[40vw] bg-black lg:display-block display-none'
             ref={leftToRight2}
           />
         </div>
@@ -164,7 +185,7 @@ function Timeline() {
             />
           </div>
           <div
-            className='h-1 w-0 relative left-[30vw] bottom-[20vh] bg-black'
+            className='h-1 w-0 relative left-[30vw] bottom-[20vh] bg-black lg:display-block display-none'
             ref={leftToRight3}
           />
         </div>
@@ -179,7 +200,7 @@ function Timeline() {
             />
           </div>
           <div
-            className='h-1 w-0 relative bottom-[20vh] left-[40vw] bg-black'
+            className='h-1 w-0 relative bottom-[20vh] left-[40vw] bg-black lg:display-block display-none'
             ref={leftToRight4}
           />
         </div>

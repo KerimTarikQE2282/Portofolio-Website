@@ -36,8 +36,9 @@ function AboutMe() {
         gsap.registerPlugin(ScrollTrigger) 
         const elements = [location.current, Xp.current, Skill.current,abtMe.current,Service1.current,Service2.current,Service3.current,Service4.current];
         const skillRefs=[Skill1.current, Skill2.current, Skill3.current, Skill4.current, Skill5.current, Skill6.current, Skill7.current, Skill8.current, Skill9.current, Skill10.current, Skill11.current, Skill12.current]  ;
-
-        elements.forEach((el, index) => {
+        let mm=gsap.matchMedia();
+        mm.add(("(min-width: 1000px)"),()=>{
+          elements.forEach((el, index) => {
             if(el ==Service1.current || el ==Service2.current || el ==Service3.current || el ==Service4.current){
                 gsap.fromTo(el, {
                     x:-300
@@ -54,11 +55,7 @@ function AboutMe() {
                   }); 
             }
             else{
-                 
-
-
-
-                  gsap.to(el, {
+                 gsap.to(el, {
                     x: 530,
                     duration: 1,
                     ease: "back",
@@ -72,6 +69,8 @@ function AboutMe() {
         
            
           });
+        })
+      
 
           gsap.from(skillLevels.current, {
             x: 1530,
@@ -168,10 +167,26 @@ function AboutMe() {
       
    const skills= skillsJson.map(element=>{
         return(
-            <div className='w-[10vw] h-[50px] bg-black flex text-center justify-center items-center rounded-full  flex-row gap-5' ref={element.ref}>
-                {element.icon}
-                <p className='text-white'>{element.name}</p>
-            </div>
+          <div 
+          className='
+              lg:w-[10vw] w-[30vw] 
+              h-[50px] 
+              bg-black 
+              flex 
+              justify-center 
+              items-center 
+              rounded-full 
+              flex-row 
+              gap-2 
+              p-2 
+              sm:w-full sm:h-auto sm:flex-col sm:gap-1
+          ' 
+          ref={element.ref}
+      >
+          <div className='text-center'>{element.icon}</div>
+          <p className='text-white text-sm sm:text-xs'>{element.name}</p>
+      </div>
+      
         )
     })
 
@@ -183,7 +198,7 @@ function AboutMe() {
         <div className='h-[35vh]'>
         
         </div>
-        <div className='relative bottom-10 right-[35vw] flex flex-col gap-3 '>
+        <div className='relative lg:bottom-10 bottom-[17vh] lg:right-[35vw] right-[38vw]  flex flex-col gap-3 '>
             <div className='flex flex-row gap-2' ref={location}>
          <MapPin/> <p className='mt-1'>Addis Ababa,Ethiopia</p>
          </div>
@@ -195,20 +210,20 @@ function AboutMe() {
          </div>
 
         </div>
-        <p className='relative right-[35vw] w-[35vw]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
-            <Link className=' bg-black rounded-lg flex flex-row text-white p-3 gap-2 relative w-[10vw] left-7 top-10 hover:border-4  hover:border-blue-900  transition-all duration-100 ease-in  ' href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"> <ArrowDown /> Portofolio</Link>
+        <p className='relative lg:right-[35vw] right-[38vw] lg:w-[35vw] w-[80vw] lg:bottom-0 bottom-[13vh]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
+            <Link className=' bg-black rounded-lg flex flex-row text-white p-3 gap-2 relative lg:w-[10vw] w-[40vw] lg:left-7 left-[-37vw] lg:top-10 top-[-8vh] hover:border-4  hover:border-blue-900  transition-all duration-100 ease-in  ' href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"> <ArrowDown /> Portofolio</Link>
       </div>
       <div className='w-full h-[100vh] '>
-        <div className='relative left-[4vw] top-[19vh]'>
-            <p className='text-3xl'>skills</p>
-            <div className='mt-10 flex flex-row gap-5 w-[40vw] flex-wrap'>
+        <div className='relative left-[4vw] lg:top-[19vh] top-[-28vh]'>
+            <p className='lg:text-3xl text-4xl'>skills</p>
+            <div className='mt-10 flex flex-row gap-5 lg:w-[40vw] w-[80vw] flex-wrap'>
 {/* skills here */}
 {skills}
 
             </div>
             
         </div>
-        <div className='relative left-[4vw] top-[19vh]'>
+        <div className='relative left-[4vw] lg:top-[19vh] top-[-21vh]'>
             <p className='text-2xl mt-[5vh]'>Services</p>
            <div className='flex flex-row gap-1 mt-3 ' ref={Service1} >
            <ArrowRight />
@@ -233,25 +248,26 @@ function AboutMe() {
 
       </div>
     </div>
-    <div className='flex flex-row gap-20  relative z-10 mt-[14vh]' ref={skillLevels} >
-    <div className='w-[25vw] h-[25vh] bg-black text-white relative bottom-[20vh] rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300  '>
-            <p className='text-5xl text-center mt-10 '>Intermidiate</p>
-            <p className='text-2xl text-center mt-10 '>Professional Level</p>
+    <div
+  className="flex flex-wrap justify-center gap-10 relative z-10 lg:mt-[-4vh] mt-[-34vh]"
+  ref={skillLevels}
+>
+  <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
+    <p className="text-3xl sm:text-4xl lg:text-5xl text-center">Intermediate</p>
+    <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Professional Level</p>
+  </div>
 
-        </div>
-        <div className='w-[25vw] h-[25vh] bg-black text-white relative bottom-[20vh] rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300  '>
-            <p className='text-5xl text-center mt-10 '>20+</p>
-            <p className='text-2xl text-center mt-10 '>Clients</p>
+  <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
+    <p className="text-3xl sm:text-4xl lg:text-5xl text-center">20+</p>
+    <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Clients</p>
+  </div>
 
-        </div>
+  <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
+    <p className="text-3xl sm:text-4xl lg:text-5xl text-center">30+</p>
+    <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Projects Worked On</p>
+  </div>
+</div>
 
-        <div className='w-[25vw] h-[25vh] bg-black text-white relative bottom-[20vh] rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300  '>
-            <p className='text-5xl text-center mt-10 '>30+</p>
-            <p className='text-2xl text-center mt-10 '>Projects worked On</p>
-
-        </div>
-
-    </div>
     </div>
   )
 }

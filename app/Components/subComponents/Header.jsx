@@ -9,7 +9,7 @@ export default function Header() {
 
         gsap.to(HeaderRef.current,{opacity:1,scrollTrigger:{
             trigger:HeaderRef.current,
-            markers:true,
+           // markers:true,
             start:"top top",
             end: "bottom+=10000 center",
             pin:true

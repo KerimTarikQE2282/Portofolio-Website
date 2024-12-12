@@ -18,7 +18,7 @@ function page() {
   };
   return (
     <div>
-  <div className="w-full h-[100vh] bg-black text-white flex flex-col justify-center items-center lg:hidden px-10"> 
+  {/* <div className="w-[100vw] h-[100vh] bg-black text-white flex flex-col justify-center items-center lg:hidden px-10"> 
     
     <Lottie 
 	    options={defaultOptions}
@@ -26,17 +26,19 @@ function page() {
         width={400}
       />
   <p className='font-bold text-xl'>Mobile Interface is Under Maintenance Please view the website on a larger screen</p>
-</div>
+</div> */}
 
       <Hero />
 
-      <div className="lg:px-24 px-10">
+      <div className="lg:px-24 px-5">
         <AboutMe />
         <Timeline />
+        <Projects />
       </div>
-      
-      <Projects />
       <GetInTouch />
+      {/* 
+      
+       */}
     </div>
   );
 }

@@ -14,25 +14,23 @@ function Hero() {
     const Skills3 = React.useRef(null);
     const me = React.useRef(null);
     const scrollBall = React.useRef(null);
-    const scroll=React.useRef(null);
+    const scroll = React.useRef(null);
 
     useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
+        gsap.to(Skills1.current, { x: -1000, y: -1000, duration: 90, repeat: 100 });
+        gsap.to(Skills2.current, { x: -1000, y: -1000, duration: 90, repeat: 100 });
+        gsap.to(Skills3.current, { x: -1000, y: -1000, duration: 90, repeat: 100 });
 
-        // Create matchMedia context
+        const tl = gsap.timeline();
+        tl.from(WelcomeSection.current, { scaleX: 0, transformOrigin: "center", opacity: 0 })
+          .to(WelcomeSection.current, { scaleX: 1, duration: 0.5 })
+          .to(WelcomeSection.current, { y: -1000, duration: 0.5, delay: 1 });
+
         const mm = gsap.matchMedia();
 
-        // Add animation rules for larger screens
-        mm.add("(min-width: 1024px)", () => {
-            const tl = gsap.timeline();
-            tl.from(WelcomeSection.current, { scaleX: 0, transformOrigin: "center", opacity: 0 })
-              .to(WelcomeSection.current, { scaleX: 1, duration: 0.5 })
-              .to(WelcomeSection.current, { y: -1000, duration: 0.5, delay: 1 });
-
-            gsap.to(Skills1.current, { x: -1000, y: -1000, duration: 90, repeat: 100 });
-            gsap.to(Skills2.current, { x: -1000, y: -1000, duration: 90, repeat: 100 });
-            gsap.to(Skills3.current, { x: -1000, y: -1000, duration: 90, repeat: 100 });
-
+        // Animation for larger screens
+        mm.add("(min-width: 580px)", () => {
             const t2 = gsap.timeline();
             t2.fromTo(
                 me.current,
@@ -54,9 +52,31 @@ function Hero() {
                 },
             });
         });
-        gsap.to(scroll.current, { opacity:1, duration: 1,delay:4 });
 
-        // Add animation rules for all screens (if needed)
+        // Animation for smaller screens
+        mm.add("(max-width: 579px)", () => {
+            const t2 = gsap.timeline();
+            t2.fromTo(
+                me.current,
+                { opacity: 0 },
+                { opacity: 1, duration: 1, delay: 2 }
+            ).to(me.current, {
+                y: 570,
+                fontWeight: "lighter",
+                backgroundColor: "white",
+                scale: 0.8,
+                color: "black",
+                duration: 10,
+                scrollTrigger: {
+                    trigger: me.current,
+                    start: "bottom center",
+                    end: "bottom 200px",
+                    scrub: 2,
+                },
+            });
+        });
+
+        gsap.to(scroll.current, { opacity: 1, duration: 1, delay: 4 });
         gsap.to(scrollBall.current, { y: 10, repeat: -1, duration: 1 });
 
         // Cleanup on unmount
@@ -87,14 +107,14 @@ React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreS
                 <p>Welcome</p>
             </div>
 
-            <div className="h-[30vh] text-center font-bold text-8xl w-[60vw] ml-[17vw] rounded-lg p-0 bg-black relative bottom-[95vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
+            <div className="lg:h-[30vh] h-[40vh] text-center font-bold text-8xl w-[60vw] ml-[17vw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
                 <div className="rounded-full h-[150px] w-[150px] relative top-8 left-24">
-                    <Image src={Me} className="rounded-full h-[15vh] w-[15vh] items-center ml-5 mt-5" alt="Me" />
+                    <Image src={Me} className="rounded-full h-[15vh] w-[15vh] items-center lg:ml-5 relative lg:right-0 right-[8vw] mt-5" alt="Me" />
                 </div>
-                <p className="text-7xl font-bold relative bottom-[10vh] ml-[10vw]">Hi, I'm Kerim</p>
+                <p className="lg:text-7xl text-5xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-10vh] top-[5vh] lg:ml-[10vw] ml-0">Hi, I'm Kerim</p>
             </div>
 
-            <div className="relative bottom-[83vh] lg:bottom-[80vh] left-[45vw] w-[30vw] opacity-0" ref={scroll}>
+            <div className="relative bottom-[95vh] lg:bottom-[80vh] left-[45vw] w-[30vw] opacity-0" ref={scroll}>
                 <p>Scroll Down</p>
                 <ArrowBigDownDash className="w-11 h-11 ml-5 mt-3" ref={scrollBall} />
             </div>

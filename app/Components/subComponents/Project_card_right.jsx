@@ -3,20 +3,20 @@ import Image from 'next/image';
 
 export default function Project_card({ image, title, description, usedTech }) {
   return (
-    <div className="relative flex items-center justify-center h-[70vh]">
-      {/* Right Section */}
-      <div className="w-1/2 h-full relative">
+    <div className="relative flex flex-col md:flex-row items-center justify-center h-auto w-full px-4 md:px-0">
+      {/* Right Section (Image) */}
+      <div className="w-full md:w-1/2 h-64 md:h-full relative">
         <Image
           src={image}
           alt="Project Image"
-          className="object-cover w-full h-full rounded-lg"
+          className="object-cover w-full h-full rounded-lg md:rounded-none hover:scale-105 transition-all"
         />
       </div>
 
       {/* Left Section */}
-      <div className="flex flex-col justify-center text-left w-1/2 px-10">
+      <div className="flex flex-col justify-center text-left w-full md:w-1/2 px-4 md:px-10 mt-6 md:mt-0">
         {/* Project Info */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 mb-2">
           <p className="uppercase text-sm font-semibold tracking-wider">
             Interactive Development
           </p>
@@ -25,21 +25,21 @@ export default function Project_card({ image, title, description, usedTech }) {
         </div>
 
         {/* Project Title */}
-        <h1 className="text-6xl font-bold mt-4">
+        <h1 className="text-3xl md:text-6xl font-bold mt-2 md:mt-4">
           {title}
         </h1>
 
         {/* Project Description */}
-        <p className="text-lg mt-4">
+        <p className="text-sm md:text-lg mt-2 md:mt-4">
           {description}
         </p>
 
         {/* Technology Tags */}
-        <div className="flex flex-wrap gap-2 mt-6">
+        <div className="flex flex-wrap gap-2 mt-4 md:mt-6">
           {usedTech.map((tech) => (
             <span
               key={tech}
-              className="px-4 py-2 text-sm font-medium border border-gray-500 rounded-full hover:bg-gray-800"
+              className="px-4 py-2 text-xs md:text-sm font-medium border border-gray-500 rounded-full hover:bg-gray-800"
             >
               {tech}
             </span>
@@ -47,7 +47,7 @@ export default function Project_card({ image, title, description, usedTech }) {
         </div>
 
         {/* View Project Button */}
-        <button className="mt-8 px-6 py-3 bg-white text-black text-lg font-medium rounded-lg hover:bg-gray-200 transition-all">
+        <button className="mt-6 md:mt-8 px-6 py-3 bg-white text-black text-sm md:text-lg font-medium rounded-lg hover:bg-gray-200 transition-all">
           View Project →
         </button>
       </div>

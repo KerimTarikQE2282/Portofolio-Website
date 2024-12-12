@@ -14,8 +14,8 @@ const ExperienceCard = ({ place, title, description, duration }) => {
 
   return (
     <div
-      className={`text-white bg-black p-10 w-[30vw] relative rounded-md flex flex-col gap-4 ${
-        place === 'right' && 'left-[25vw]'
+      className={`text-white bg-black p-10 lg:w-[30vw] w-[90vw] relative rounded-md flex flex-col gap-4 ${
+        place === 'right' && 'lg:left-[25vw] left-[-25vw]'
       }`}
       style={{ minHeight: 'fit-content' }} // Ensures height grows to fit content
     >
@@ -30,13 +30,13 @@ const ExperienceCard = ({ place, title, description, duration }) => {
       </p>
       <div className='flex flex-row gap-5 w-full flex-wrap mt-5'>
         {/* Skill badges */}
-        <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+        <div className='lg:w-[5vw] w-[18vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
           <p className='text-black'>React</p>
         </div>
-        <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+        <div className='lg:w-[5vw] w-[18vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
           <p className='text-black'>MongoDB</p>
         </div>
-        <div className='w-[5vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
+        <div className='lg:w-[5vw] w-[18vw] h-[4vh] bg-white flex text-center justify-center items-center rounded-full'>
           <p className='text-black'>Node.js</p>
         </div>
       </div>

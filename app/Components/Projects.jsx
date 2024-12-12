@@ -18,16 +18,17 @@ function Projects() {
     cards.forEach(element => {
       gsap.fromTo(element,
         {
-          x:"random(-600,600)",
+          x:"-400",
         },
         {
           x:0,
           duration:1,
-          ease:"back",
+        
           scrollTrigger:{
             trigger:element,
             start:"top 80%",
-            end:"bottom+=100% center",
+            end:"top +50",
+            markers:true,
             scrub:1,}
         }
 
