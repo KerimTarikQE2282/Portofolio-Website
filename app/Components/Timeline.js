@@ -20,7 +20,7 @@ function Timeline() {
     gsap.registerPlugin(ScrollTrigger) 
     let mm=gsap.matchMedia()
     gsap.to(Time.current, {
-      height: "250vh", 
+      height: "200vh", 
       scrollTrigger: {
         trigger: Time.current,
         //markers: true, // For debugging, remove in production

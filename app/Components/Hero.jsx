@@ -2,10 +2,11 @@
 import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ArrowBigDownDash } from 'lucide-react';
+import { ArrowBigDownDash, Github, GithubIcon, Linkedin, Mail } from 'lucide-react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Me from '../../Resources/Me.jpg';
+import Me from '../../Resources/Me.JPG';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function Hero() {
     const WelcomeSection = React.useRef(null);
@@ -37,8 +38,8 @@ function Hero() {
                 { opacity: 0 },
                 { opacity: 1, duration: 1, delay: 2 }
             ).to(me.current, {
-                y: 570,
-                x: -300,
+                y: 870,
+                x: -500,
                 fontWeight: "lighter",
                 backgroundColor: "white",
                 scale: 0.8,
@@ -107,11 +108,19 @@ React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreS
                 <p>Welcome</p>
             </div>
 
-            <div className="lg:h-[30vh] h-[40vh] text-center font-bold text-8xl w-[60vw] ml-[17vw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
-                <div className="rounded-full h-[150px] w-[150px] relative top-8 left-24">
-                    <Image src={Me} className="rounded-full h-[15vh] w-[15vh] items-center lg:ml-5 relative lg:right-0 right-[8vw] mt-5" alt="Me" />
+            <div className="lg:h-[30vh] h-[40vh] text-center font-bold text-8xl w-[50vw] ml-[23vw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
+                <div className="rounded-full h-[150px] w-[165px] relative top-8 left-24">
+                    <Image src={Me} className="rounded-full h-[15vh] w-[400px] items-center lg:ml-5 relative lg:right-0 right-[8vw] mt-5" alt="Me" />
                 </div>
-                <p className="lg:text-7xl text-5xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-10vh] top-[5vh] lg:ml-[10vw] ml-0">Hi, I'm Kerim</p>
+                <div>
+                <p className="lg:text-7xl text-6xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-10vh] top-[5vh] lg:ml-[6vw] ml-0">Hi, I'm Kerim</p>
+                <div className='flex flex-row relative gap-10 left-[8vw] bottom-[4vh]'>
+               <Link className='hover:cursor-pointer' href={'#'}> <Github className="w-10 h-10 lg:ml-[10vw] ml-0 " /></Link>
+               <Link className='hover:cursor-pointer' href={'#'}> <Linkedin className="w-10 h-10  ml-0 " /></Link>
+               <Link className='hover:cursor-pointer' href={'#'}> <Mail className="w-10 h-10  ml-0 " /></Link>
+
+                </div>
+                </div>
             </div>
 
             <div className="relative bottom-[95vh] lg:bottom-[80vh] left-[45vw] w-[30vw] opacity-0" ref={scroll}>
