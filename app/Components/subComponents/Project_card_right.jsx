@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { GithubIcon } from 'lucide-react';
 
 export default function Project_card({ image, title, description, usedTech }) {
   return (
@@ -47,9 +49,14 @@ export default function Project_card({ image, title, description, usedTech }) {
         </div>
 
         {/* View Project Button */}
-        <button className="mt-6 md:mt-8 px-6 py-3 bg-white text-black text-sm md:text-lg font-medium rounded-lg hover:bg-gray-200 transition-all">
+        <div className='flex flex-row gap-10'>
+        <Link href={'$'} alt={"some thing"} className="mt-6 md:mt-8 px-6 py-3 bg-black text-white text-sm md:text-lg font-medium rounded-lg hover:bg-white hover:text-black hover:border hover:border-5  transition-all">
           View Project →
-        </button>
+        </Link>
+        <Link href={'$'} alt={"some thing"} className="mt-6 md:mt-8 px-6 py-3 bg-black text-white text-sm md:text-lg font-medium rounded-lg hover:bg-white hover:text-black hover:border hover:border-5  transition-all flex flex-row gap-5">
+         <GithubIcon/> <p >Github repo</p>
+        </Link>
+        </div>
       </div>
     </div>
   );

@@ -38,8 +38,8 @@ function Hero() {
                 { opacity: 0 },
                 { opacity: 1, duration: 1, delay: 2 }
             ).to(me.current, {
-                y: 870,
-                x: -450,
+                y: 730,
+                x: -400,
                 fontWeight: "lighter",
                 backgroundColor: "white",
                 scale: 0.8,

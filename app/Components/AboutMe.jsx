@@ -198,7 +198,7 @@ function AboutMe() {
         <div className='h-[35vh]'>
         
         </div>
-        <div className='relative lg:bottom-10 bottom-[17vh] lg:right-[25vw] right-[38vw]  flex flex-col gap-3 '>
+        <div className='relative lg:bottom-10 bottom-[17vh] lg:right-[26.5vw] right-[38vw]  flex flex-col gap-3 '>
             <div className='flex flex-row gap-2' ref={location}>
          <MapPin/> <p className='mt-1'>Addis Ababa,Ethiopia</p>
          </div>
@@ -210,7 +210,7 @@ function AboutMe() {
          </div>
 
         </div>
-        <p className='relative lg:right-[25vw] right-[38vw] lg:w-[35vw] w-[80vw] lg:bottom-0 bottom-[13vh]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
+        <p className='relative lg:right-[26.5vw] right-[38vw] lg:w-[35vw] w-[80vw] lg:bottom-0 bottom-[13vh]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
             <Link className=' bg-black rounded-lg flex flex-row text-white p-3 gap-2 relative lg:w-[10vw] w-[40vw] lg:left-7 left-[-37vw] lg:top-10 top-[-8vh] hover:border-4  hover:border-blue-900  transition-all duration-100 ease-in  ' href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"> <ArrowDown /> Portofolio</Link>
       </div>
       <div className='w-full h-[100vh] '>
@@ -249,7 +249,7 @@ function AboutMe() {
       </div>
     </div>
     <div
-  className="flex flex-wrap justify-center gap-10 relative z-10 lg:mt-[-30vh] mt-[-34vh]"
+  className="flex flex-wrap justify-center gap-10 relative z-10 lg:mt-[-20vh] mt-[-34vh] lg:right-[3.5vw]"
   ref={skillLevels}
 >
   <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
