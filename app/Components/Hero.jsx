@@ -39,7 +39,7 @@ function Hero() {
                 { opacity: 1, duration: 1, delay: 2 }
             ).to(me.current, {
                 y: 870,
-                x: -500,
+                x: -450,
                 fontWeight: "lighter",
                 backgroundColor: "white",
                 scale: 0.8,
