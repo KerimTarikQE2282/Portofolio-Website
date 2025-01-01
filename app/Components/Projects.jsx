@@ -37,7 +37,7 @@ function Projects() {
 
   })
   return (
-    <div className='flex flex-col h-[250vh] lg:h-[220vh] gap-[20vh] overflow-hidden w-full px-10'>
+    <div className='flex flex-col mt-0  lg:mt-[15vh] h-[350vh] lg:h-[270vh] gap-[20vh] overflow-hidden w-full px-10'>
        <p className='text-6xl  font-bold text-center justify-center  lg:relative lg:right-14'>My Projects</p> 
        <div ref={card1}><Project_card_left image={Auora} title={"Auora a Video Sharing And Streaming App" } description={"An amazing video sharing and streaming app built with Expo and express utilizing mongo Db as a database"} usedTech={["Expo","React Native","Express Js","Node Js","Mongo Db"]}/></div>
        <div ref={card2}>

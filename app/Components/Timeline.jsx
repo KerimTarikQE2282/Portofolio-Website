@@ -20,12 +20,12 @@ function Timeline() {
     gsap.registerPlugin(ScrollTrigger) 
     let mm=gsap.matchMedia()
     gsap.to(Time.current, {
-      height: "200vh", 
+      height: "250vh", 
       scrollTrigger: {
         trigger: Time.current,
-        //markers: true, // For debugging, remove in production
-        start: "top bottom", // When the animation starts
-        end: "bottom+=1200vh", // End when the bottom of the trigger reaches 100vh from the bottom of the viewport
+       // markers: true, // For debugging, remove in production
+        start: "top+1000 bottom", // When the animation starts
+        end: "bottom+=2000vh", // End when the bottom of the trigger reaches 100vh from the bottom of the viewport
 
         onUpdate:(self)=>{
           console.log(self.progress)

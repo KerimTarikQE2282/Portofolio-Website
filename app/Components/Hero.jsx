@@ -38,8 +38,8 @@ function Hero() {
                 { opacity: 0 },
                 { opacity: 1, duration: 1, delay: 2 }
             ).to(me.current, {
-                y: 730,
-                x: -400,
+                y: '31rem',
+                x:'-23rem',
                 fontWeight: "lighter",
                 backgroundColor: "white",
                 scale: 0.8,
@@ -108,13 +108,13 @@ React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreS
                 <p>Welcome</p>
             </div>
 
-            <div className="lg:h-[30vh] h-[40vh] text-center font-bold text-8xl w-[50vw] ml-[23vw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
+            <div className="lg:h-[15rem] h-[55vh] text-center font-bold lg:w-[48rem] text-8xl w-[50vw] ml-[23vw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
                 <div className="rounded-full h-[150px] w-[165px] relative top-8 left-24">
-                    <Image src={Me} className="rounded-full h-[15vh] w-[400px] items-center lg:ml-5 relative lg:right-0 right-[8vw] mt-5" alt="Me" />
+                    <Image src={Me} className="rounded-full h-[100px] w-[100px] items-center lg:ml-0 relative lg:right-10 right-[8vw] mt-5" alt="Me" />
                 </div>
                 <div>
-                <p className="lg:text-7xl text-6xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-10vh] top-[5vh] lg:ml-[6vw] ml-0">Hi, I'm Kerim</p>
-                <div className='flex flex-row relative gap-10 left-[8vw] bottom-[4vh]'>
+                <p className="lg:text-[5rem] text-6xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-5rem] top-[5vh] lg:ml-[6vw] ml-0">Hi, I'm Kerim</p>
+                <div className='lg:flex flex-row relative gap-10 lg:left-[8vw] bottom-[-9vh] lg:bottom-[4rem]  hidden'>
                <Link className='hover:cursor-pointer' href={'#'}> <Github className="w-10 h-10 lg:ml-[10vw] ml-0 " /></Link>
                <Link className='hover:cursor-pointer' href={'#'}> <Linkedin className="w-10 h-10  ml-0 " /></Link>
                <Link className='hover:cursor-pointer' href={'#'}> <Mail className="w-10 h-10  ml-0 " /></Link>
