@@ -56,7 +56,7 @@ function AboutMe() {
             }
             else{
                  gsap.to(el, {
-                    x: 530,
+                    x: '35vw',
                     duration: 1,
                     ease: "back",
                     scrollTrigger: {
@@ -169,7 +169,7 @@ function AboutMe() {
         return(
           <div 
           className='
-              lg:w-[10vw] w-[30vw] 
+              lg:w-[10dvw] w-[30dvw] 
               h-[50px] 
               bg-black 
               flex 
@@ -191,14 +191,14 @@ function AboutMe() {
     })
 
   return (
-    <div className='overflow-hidden '>
+    <div className='overflow-hidden lg:h-[150vh] '>
        
         <div className='flex lg:flex-row flex-col py-[10vh] '>
       <div className='w-full h-screen relative lg:left-0 left-40'>
         <div className='h-[35vh]'>
         
         </div>
-        <div className='relative lg:bottom-10 bottom-[17vh] lg:right-[33.5vw] right-[38vw]  flex flex-col gap-3 '>
+        <div className='relative lg:bottom-10 bottom-[17vh] lg:right-[33.5dvw] right-[38dvw]  flex flex-col gap-3 '>
             <div className='flex flex-row gap-2' ref={location}>
          <MapPin/> <p className='mt-1'>Addis Ababa,Ethiopia</p>
          </div>
@@ -210,20 +210,20 @@ function AboutMe() {
          </div>
 
         </div>
-        <p className='relative lg:right-[33.5vw] right-[38vw] lg:w-[35vw] w-[80vw] lg:bottom-0 bottom-[13vh]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
-            <Link className=' bg-black rounded-lg flex flex-row text-white p-3 gap-2 relative lg:w-[10vw] w-[40vw] lg:left-7 left-[-37vw] lg:top-10 top-[-8vh] hover:border-4  hover:border-blue-900  transition-all duration-100 ease-in  ' href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"> <ArrowDown /> Portofolio</Link>
+        <p className='relative lg:right-[33.5dvw] right-[38dvw] lg:w-[35dvw] w-[80dvw] lg:bottom-0 bottom-[13vh]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
+            <Link className=' bg-black rounded-lg flex flex-row text-white p-3 gap-2 relative lg:w-[10dvw] w-[40dvw] lg:left-7 left-[-37dvw] lg:top-10 top-[-8vh] hover:border-4  hover:border-blue-900  transition-all duration-100 ease-in  ' href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"> <ArrowDown /> Portofolio</Link>
       </div>
       <div className='w-full h-[100vh] '>
-        <div className='relative left-[4vw] lg:top-[10vh] top-[-28vh]'>
+        <div className='relative left-[4dvw] lg:top-[10vh] top-[-28vh]'>
             <p className='lg:text-3xl text-4xl'>skills</p>
-            <div className='mt-10 flex flex-row gap-5 lg:w-[40vw] w-[80vw] flex-wrap'>
+            <div className='mt-10 flex flex-row gap-5 lg:w-[40dvw] w-[80dvw] flex-wrap'>
 {/* skills here */}
 {skills}
 
             </div>
             
         </div>
-        <div className='relative left-[4vw] lg:top-[15vh] top-[-21vh]'>
+        <div className='relative left-[4dvw] lg:top-[15vh] top-[-21vh]'>
             <p className='text-2xl mt-[5vh]'>Services</p>
            <div className='flex flex-row gap-1 mt-3 ' ref={Service1} >
            <ArrowRight />
@@ -249,20 +249,20 @@ function AboutMe() {
       </div>
     </div>
     <div
-  className="flex flex-wrap justify-center gap-10 relative z-10 lg:mt-[-1vh] mt-[-34vh] lg:right-[3.5vw]"
+  className="flex flex-wrap justify-center gap-10 relative z-10 lg:mt-[-1vh] mt-[-34vh] lg:right-[-0.5dvw]"
   ref={skillLevels}
 >
-  <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
+  <div className="w-[90dvw] sm:w-[40dvw] lg:w-[25dvw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
     <p className="text-3xl sm:text-4xl lg:text-5xl text-center">Intermediate</p>
     <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Professional Level</p>
   </div>
 
-  <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
+  <div className="w-[90dvw] sm:w-[40dvw] lg:w-[25dvw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
     <p className="text-3xl sm:text-4xl lg:text-5xl text-center">20+</p>
     <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Clients</p>
   </div>
 
-  <div className="w-[90vw] sm:w-[40vw] lg:w-[25vw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
+  <div className="w-[90dvw] sm:w-[40dvw] lg:w-[25dvw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
     <p className="text-3xl sm:text-4xl lg:text-5xl text-center">30+</p>
     <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Projects Worked On</p>
   </div>

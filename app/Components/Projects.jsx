@@ -39,13 +39,16 @@ function Projects() {
   return (
     <div className='flex flex-col mt-0  lg:mt-[15vh] h-[350vh] lg:h-[270vh] gap-[20vh] overflow-hidden w-full px-10'>
        <p className='text-6xl  font-bold text-center justify-center  lg:relative lg:right-14'>My Projects</p> 
-       <div ref={card1}><Project_card_left image={Auora} title={"Auora a Video Sharing And Streaming App" } description={"An amazing video sharing and streaming app built with Expo and express utilizing mongo Db as a database"} usedTech={["Expo","React Native","Express Js","Node Js","Mongo Db"]}/></div>
+       <div ref={card1}><Project_card_left image={Auora}  githubLink={'https://github.com/KerimTarikQE2282/Auora-Video-Streaming-and-sharing-platform.git'}
+    ProjectLink={'#'} title={"Auora a Video Sharing And Streaming App" } description={"An amazing video sharing and streaming app built with Expo and express utilizing mongo Db as a database"} usedTech={["Expo","React Native","Express Js","Node Js","Mongo Db"]}/></div>
        <div ref={card2}>
   <Project_card_right 
     image={IS} 
     title={"Inventory Management System"} 
     description={"An advanced inventory management system with real-time tracking, AI-driven sales predictions, and automated stock replenishment."} 
     usedTech={["Next.js", "Express.js", "MongoDB", "Scikit-learn", "Tailwind CSS"]} 
+    githubLink={'https://github.com/KerimTarikQE2282/SeniorProject-Inventory-managemnet-system.git'}
+    ProjectLink={'/UnderConstruction'}
   />
 </div>
 <div ref={card3}>
@@ -54,6 +57,8 @@ function Projects() {
     title={"Sulliy Islamic Companion App"} 
     description={"A comprehensive Islamic companion app with features like Qibla Finder, Athkars, prayer tracker, and AI-powered Islamic knowledge tools."} 
     usedTech={["React Native", "Node.js", "AI Modules", "MongoDB", "Expo"]} 
+    githubLink={'https://github.com/KerimTarikQE2282/Sulliy-Your-Islamic-Companion-app.git'}
+    ProjectLink={'#'}
   />
 </div>
 

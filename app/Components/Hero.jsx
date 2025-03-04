@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Me from '../../Resources/Me.JPG';
 import Image from 'next/image';
 import Link from 'next/link';
+import ScrollProgressBar from './subComponents/Scroller';
 
 function Hero() {
     const WelcomeSection = React.useRef(null);
@@ -38,8 +39,8 @@ function Hero() {
                 { opacity: 0 },
                 { opacity: 1, duration: 1, delay: 2 }
             ).to(me.current, {
-                y: '31rem',
-                x:'-23rem',
+                y: '73vh',
+                x:'-23vw',
                 fontWeight: "lighter",
                 backgroundColor: "white",
                 scale: 0.8,
@@ -86,19 +87,20 @@ function Hero() {
 
     return (
         <div className="h-[100vh]">
+            <ScrollProgressBar/>
             <div className="relative overflow-hidden h-full ">
                 <p
-                    className="text-4xl md:text-6xl text-gray-600 whitespace-nowrap rotate-45 ml-[50vw] md:ml-[15vw]"
+                    className="text-4xl md:text-6xl text-gray-600 whitespace-nowrap rotate-45 ml-[50dvw] md:ml-[15dvw]"
                     ref={Skills1}
                 >
 React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreSQL • Tailwind CSS • Redux • Scikit-learn • TensorFlow • Pandas • NumPy • Matplotlib • Python • JavaScript • TypeScript • Prisma ORM • REST APIs • GraphQL • Docker • Git • Heroku • Firebase                </p>
                 <p
-                    className="text-4xl md:text-6xl text-gray-600 whitespace-nowrap rotate-45 h-[20vh] md:h-[30vh] mr-[105vw] md:mr-[55vw]"
+                    className="text-4xl md:text-6xl text-gray-600 whitespace-nowrap rotate-45 h-[20vh] md:h-[30vh] mr-[105dvw] md:mr-[55dvw]"
                     ref={Skills3}
                 >
 React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreSQL • Tailwind CSS • Redux • Scikit-learn • TensorFlow • Pandas • NumPy • Matplotlib • Python • JavaScript • TypeScript • Prisma ORM • REST APIs • GraphQL • Docker • Git • Heroku • Firebase                </p>
                 <p
-                    className="text-4xl md:text-6xl text-gray-600 whitespace-nowrap rotate-45 h-[20vh] md:h-[30vh] mr-[425vw] relative lg:right-0 right-[30vw] md:mr-[85vw]"
+                    className="text-4xl md:text-6xl text-gray-600 whitespace-nowrap rotate-45 h-[20vh] md:h-[30vh] mr-[425dvw] relative lg:right-0 right-[30dvw] md:mr-[85dvw]"
                     ref={Skills2}
                 >
 React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreSQL • Tailwind CSS • Redux • Scikit-learn • TensorFlow • Pandas • NumPy • Matplotlib • Python • JavaScript • TypeScript • Prisma ORM • REST APIs • GraphQL • Docker • Git • Heroku • Firebase                </p>
@@ -108,14 +110,14 @@ React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreS
                 <p>Welcome</p>
             </div>
 
-            <div className="lg:h-[15rem] h-[55vh] text-center font-bold lg:w-[48rem] text-8xl w-[50vw] ml-[23vw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
+            <div className="lg:h-[15rem] h-[55vh] text-center font-bold lg:w-[48rem] text-8xl w-[50dvw] ml-[23dvw] rounded-lg p-0 bg-black relative lg:bottom-[95vh] bottom-[110vh] text-white opacity-0 flex flex-col gap-5" ref={me}>
                 <div className="rounded-full h-[150px] w-[165px] relative top-8 left-24">
-                    <Image src={Me} className="rounded-full h-[100px] w-[100px] items-center lg:ml-0 relative lg:right-10 right-[8vw] mt-5" alt="Me" />
+                    <Image src={Me} className="rounded-full h-[100px] w-[100px] items-center lg:ml-0 relative lg:right-10 right-[8dvw] mt-5" alt="Me" />
                 </div>
                 <div>
-                <p className="lg:text-[5rem] text-6xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-5rem] top-[5vh] lg:ml-[6vw] ml-0">Hi, I'm Kerim</p>
-                <div className='lg:flex flex-row relative gap-10 lg:left-[8vw] bottom-[-9vh] lg:bottom-[4rem]  hidden'>
-               <Link className='hover:cursor-pointer' href={'#'}> <Github className="w-10 h-10 lg:ml-[10vw] ml-0 " /></Link>
+                <p className="lg:text-[5rem] text-6xl font-bold relative lg:bottom-[30vh] bottom-0 lg:top-[-5rem] top-[5vh] lg:ml-[6dvw] ml-0">Hi, I'm Kerim</p>
+                <div className='lg:flex flex-row relative gap-10 lg:left-[8dvw] bottom-[-9vh] lg:bottom-[4rem]  hidden'>
+               <Link className='hover:cursor-pointer' href={'#'}> <Github className="w-10 h-10 lg:ml-[10dvw] ml-0 " /></Link>
                <Link className='hover:cursor-pointer' href={'#'}> <Linkedin className="w-10 h-10  ml-0 " /></Link>
                <Link className='hover:cursor-pointer' href={'#'}> <Mail className="w-10 h-10  ml-0 " /></Link>
 
@@ -123,7 +125,7 @@ React • Next.js • Express.js • Node.js • Django • MongoDB • PostgreS
                 </div>
             </div>
 
-            <div className="relative bottom-[95vh] lg:bottom-[80vh] left-[45vw] w-[30vw] opacity-0" ref={scroll}>
+            <div className="relative bottom-[95vh] lg:bottom-[80vh] left-[45dvw] w-[30dvw] opacity-0" ref={scroll}>
                 <p>Scroll Down</p>
                 <ArrowBigDownDash className="w-11 h-11 ml-5 mt-3" ref={scrollBall} />
             </div>

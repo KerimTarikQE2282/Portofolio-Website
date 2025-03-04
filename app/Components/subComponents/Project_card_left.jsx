@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { GithubIcon } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Project_card({ image, title, description, usedTech }) {
+export default function Project_card({ image, title, description, usedTech,githubLink,ProjectLink }) {
   return (
-    <div className="relative flex flex-col-reverse md:flex-row items-center justify-center h-auto lg:w-full w-[90vw] px-4 md:px-0">
+    <div className="relative flex flex-col-reverse md:flex-row items-center justify-center h-auto lg:w-full w-[90dvw] px-4 md:px-0">
       
       {/* Left Section */}
       <div className="flex flex-col justify-center text-left w-full md:w-1/2 px-4 md:px-10 mt-6 md:mt-0">
@@ -42,10 +42,10 @@ export default function Project_card({ image, title, description, usedTech }) {
 
         {/* View Project Button */}
         <div className='flex flex-row gap-10'>
-        <Link href={'$'} alt={"some thing"} className="mt-6 md:mt-8 px-6 py-3 bg-black text-white text-sm md:text-lg font-medium rounded-lg hover:bg-white hover:text-black hover:border hover:border-5  transition-all">
+        <Link href={ProjectLink} alt={"some thing"} className="mt-6 md:mt-8 px-6 py-3 bg-black text-white text-sm md:text-lg font-medium rounded-lg hover:bg-white hover:text-black hover:border hover:border-5  transition-all">
           View Project →
         </Link>
-        <Link href={'$'} alt={"some thing"} className="mt-6 md:mt-8 px-6 py-3 bg-black text-white text-sm md:text-lg font-medium rounded-lg hover:bg-white hover:text-black hover:border hover:border-5  transition-all flex flex-row gap-5">
+        <Link href={githubLink} alt={"some thing"} className="mt-6 md:mt-8 px-6 py-3 bg-black text-white text-sm md:text-lg font-medium rounded-lg hover:bg-white hover:text-black hover:border hover:border-5  transition-all flex flex-row gap-5">
          <GithubIcon/> <p >Github repo</p>
         </Link>
         </div>

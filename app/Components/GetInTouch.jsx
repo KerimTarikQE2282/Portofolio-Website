@@ -44,10 +44,10 @@ function Contact() {
 
   return (
     <div className="lg:h-[90vh] h-[100vh] relative lg:top-0 top-[-15vh] " id="Contact">
-      <div className="lg:w-[80vw] w-[90vw] lg:h-[80vh] bg-white relative lg:left-[10vw] left-[5vw] rounded-md top-[6vh] lg:top-[4vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg">
-        <div className="lg:w-[40vw] w-full mb-10 lg:mb-0">
+      <div className="lg:w-[80dvw] w-[90dvw] lg:h-[80vh] bg-white relative lg:left-[10dvw] left-[5dvw] rounded-md top-[6vh] lg:top-[4vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg">
+        <div className="lg:w-[40dvw] w-full mb-10 lg:mb-0">
           <p className="font-bold text-4xl lg:text-5xl">Get In Touch</p>
-          <p className="mt-8 lg:mt-16 lg:w-[35vw] text-gray-700">
+          <p className="mt-8 lg:mt-16 lg:w-[35dvw] text-gray-700">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, modi itaque! Id atque alias, dicta excepturi aspernatur necessitatibus temporibus
             qui quam, consectetur fugit laboriosam harum quisquam incidunt expedita vero. Ipsam?
           </p>
@@ -83,7 +83,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="lg:w-[40vw] w-full">
+        <div className="lg:w-[40dvw] w-full">
           <p className="font-bold text-3xl lg:text-4xl mb-6">Send me a message</p>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
