@@ -5,19 +5,22 @@ import { cn } from "@/lib/utils";
 
 const experiences = [
   {
-    date: "Jan 2023 - Present",
-    company: "Digital Perspective",
-    role: "Frontend Web Developer",
-    details: "Web Design; Web Development; Wordpress + Elementor.",
+    date: "Sept 2024 – Present",
+    company: "Feruz Textile Imports",
+    role: "Full Stack Developer",
+    details:
+      "Developed a tailored inventory system using the MERN stack with real-time tracking, supplier/order access, and automated stock alerts. Delivered a dashboard with visual insights for efficient inventory decisions.",
   },
   {
-    date: "Jan 2020 - Mar 2020",
-    company: "Bitcliq",
-    role: "Software Developer - Internship",
+    date: "May 2024 – Sept 2024",
+    company: "Oumer Auto Glass",
+    role: "Full Stack Developer",
     details:
-      "Mobile Development (Parque D.Carlos I App - Course Final Project [Grade:20/20]); Web Development; Functional testing some company's apps (Lota Digital, Caldas da Rainha - City Guide).",
+      "Built a smart inventory system using MERN and Scikit-learn for sales prediction and stock optimization. Delivered an interactive dashboard for real-time inventory trends and alerts.",
   },
+
 ];
+
 
 const studies = [
   {
@@ -28,7 +31,7 @@ const studies = [
   },
   {
     date: "Upcoming",
-    school: "Top-tier University (Pending)",
+    school: "",
     degree: "Master's in Computer Science",
     details: "Aiming for research in AI, optimization, and security.",
   },
@@ -36,16 +39,18 @@ const studies = [
 
 const certifications = [
   {
-    date: "March 2024",
-    title: "AWS Certified Cloud Practitioner",
-    details: "Fundamentals of cloud computing, AWS services, security, and pricing.",
+    date: "August 2024",
+    title: "IELTS Certification",
+    details: "Achieved an overall score of 8 on the IELTS English proficiency test.",
   },
   {
-    date: "July 2023",
-    title: "Meta Front-End Developer Certification",
-    details: "HTML, CSS, JavaScript, React, and responsive design principles.",
-  },
+    date: "May 2024",
+    title: "UI/UX Design Certification",
+    details: "Completed a comprehensive UI/UX design course on Skillshare covering user research, wireframing, and prototyping.",
+    link: "http://localhost:3000/UIUX.pdf"
+  }
 ];
+
 
 export default function ExperienceSection() {
   const [activeTab, setActiveTab] = useState("Work");
@@ -99,7 +104,16 @@ export default function ExperienceSection() {
 
               {/* Card */}
               <Card className="bg-white shadow-lg border border-gray-200">
-                <CardContent className="p-4">
+                <CardContent className="p-4"
+                {
+                  ...(activeTab === "Certifications" && {
+                    as: "a",
+                    href: item.link,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })
+                }
+                >
                   <p className="text-sm text-gray-500">{item.date}</p>
                   <h3 className="text-lg font-bold mt-1">
                     {activeTab === "Work"
