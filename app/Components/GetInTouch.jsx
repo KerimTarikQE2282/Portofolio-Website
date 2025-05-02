@@ -43,7 +43,7 @@ function Contact() {
   };
 
   return (
-    <div className="lg:h-[90vh] h-[100vh] relative lg:top-0 top-[-15vh] " id="Contact">
+    <div className="lg:h-[90vh] h-[100vh] relative lg:top-0  " id="Contact">
       <div className="lg:w-[80dvw] w-[90dvw] lg:h-[80vh] bg-white relative lg:left-[10dvw] left-[5dvw] rounded-md top-[6vh] lg:top-[4vh] flex flex-col lg:flex-row p-6 lg:p-10 shadow-lg">
         <div className="lg:w-[40dvw] w-full mb-10 lg:mb-0">
           <p className="font-bold text-4xl lg:text-5xl">Get In Touch</p>
@@ -139,7 +139,7 @@ function Contact() {
       </div>
 
       <div className="h-16 lg:h-20 bg-black flex justify-center items-center mt-16 lg:mt-16">
-        <p className="text-white text-center">© Kerim Tarik Developments 2024 all Rights Reserved</p>
+        <p className="text-white text-center mx-5 lg:mx-0">© Kerim Tarik Developments 2024 all Rights Reserved</p>
       </div>
     </div>
   );

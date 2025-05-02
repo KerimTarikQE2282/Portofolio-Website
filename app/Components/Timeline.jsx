@@ -69,7 +69,7 @@ export default function ExperienceSection() {
       <h2 className="text-2xl font-bold mb-[10vh]">Experience, Education & Certifications</h2>
 
       {/* Tabs */}
-      <div className="flex space-x-4 mb-6 bg-gray-200 p-2 rounded-lg">
+      <div className="flex lg:space-x-4 lg:w-[23vw] mb-6 bg-gray-200 p-2 rounded-lg ">
         {["Work", "Studies", "Certifications"].map((tab) => (
           <button
             key={tab}
