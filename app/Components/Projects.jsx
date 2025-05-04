@@ -95,19 +95,38 @@ export default function Projects() {
     <div className="flex flex-col mt-0 lg:mt-[15vh] min-h-[100vh] gap-[20vh] overflow-hidden w-full px-10">
       <h2 className="text-3xl font-bold relative lg:left-[35vw]">Projects</h2>
 
-      <div className="flex space-x-4 mb-10 bg-gray-200 lg:w-[33vw] w-full p-2 rounded-lg self-center">
-        {['App Development', 'AI Projects', 'Cybersecurity Projects'].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-lg transition-all ${
-              activeTab === tab ? 'bg-black text-white' : 'text-gray-600'
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
+      <div className="mb-10 w-full p-2 rounded-lg self-center bg-gray-200 lg:w-[33vw]">
+  {/* Large screens: button group */}
+  <div className="hidden lg:flex space-x-4">
+    {['App Development', 'AI Projects', 'Cybersecurity Projects'].map((tab) => (
+      <button
+        key={tab}
+        onClick={() => setActiveTab(tab)}
+        className={`px-4 py-2 rounded-lg transition-all ${
+          activeTab === tab ? 'bg-black text-white' : 'text-gray-600'
+        }`}
+      >
+        {tab}
+      </button>
+    ))}
+  </div>
+
+  {/* Small screens: dropdown */}
+  <div className="lg:hidden">
+    <select
+      value={activeTab}
+      onChange={(e) => setActiveTab(e.target.value)}
+      className="w-full p-2 rounded-lg bg-white text-gray-700"
+    >
+      {['App Development', 'AI Projects', 'Cybersecurity Projects'].map((tab) => (
+        <option key={tab} value={tab}>
+          {tab}
+        </option>
+      ))}
+    </select>
+  </div>
+</div>
+
 
       {projectData.map((project, index) => (
         <div key={index} ref={(el) => (refs.current[index] = el)}>
