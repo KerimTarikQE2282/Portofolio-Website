@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionCard from '../components/SectionCard.astro';
+import { sections } from '../lib/sections';
+import { getPosts } from '../lib/posts';
+
+const marquee = [
+  'Active Directory', 'Kerberoasting', 'BloodHound', 'Hack The Box', 'Privilege Escalation', 'Pivoting',
+  'Burp Suite', 'OWASP Top 10', 'Impacket', 'NetExec', 'Detection Engineering', 'Home Lab', 'OSCP', 'CPTS',
+].join(' • ');
+
+const cards = await Promise.all(
+  sections.map(async (section) => {
+    const posts = await getPosts(section.id);
+    return { section, count: posts.length, latest: posts[0]?.data.pubDate };
+  }),
+);
+---
+
+<BaseLayout>
+  <!-- Intro bar, played once per session by scripts/animations.ts -->
+  <div class="intro" aria-hidden="true" hidden><span>~/blog</span></div>
+
+  <section class="hero">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="marquee" aria-hidden="true">
+      <p>{marquee}</p>
+      <p>{marquee}</p>
+      <p>{marquee}</p>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow mono">
+        <span class="prompt">$</span> <span data-type="cat ./README">cat ./README</span><span class="cursor" aria-hidden="true"></span>
+      </p>
+      <h1>
+        Building, breaking, and<br class="br-wide" /> <span class="accent">making security usable.</span>
+      </h1>
+      <p class="sub">
+        Notes from my home lab, writeups of retired Hack The Box machines, and research on how people
+        actually live with security controls.
+      </p>
+    </div>
+  </section>
+
+  <section class="container sections" aria-label="Sections">
+    <ul class="cards">
+      {
+        cards.map(({ section, count, latest }, i) => (
+          <li>
+            <SectionCard section={section} index={i} count={count} latest={latest} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    padding-block: clamp(4.5rem, 12vw, 8.5rem) clamp(3rem, 7vw, 5rem);
+    overflow: hidden;
+  }
+
+  /* Faint dot grid fading out from the top-left */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle at 1px 1px, rgb(24 24 27 / 0.12) 1px, transparent 0);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 75%);
+  }
+
+  .hero-inner {
+    position: relative;
+  }
+
+  /* Slowly drifting diagonal text behind the hero, like the portfolio's skills lines */
+  .marquee {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .marquee p {
+    position: absolute;
+    white-space: nowrap;
+    color: rgb(24 24 27 / 0.05);
+    font-family: var(--font-mono);
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-weight: 600;
+    transform: rotate(45deg);
+    transform-origin: left top;
+  }
+
+  .marquee p:nth-child(1) { left: 45%; top: -10%; }
+  .marquee p:nth-child(2) { left: 70%; top: -30%; }
+  .marquee p:nth-child(3) { left: 95%; top: -50%; }
+
+  /* Intro bar: covers the viewport centre, then flies up */
+  .intro {
+    position: fixed;
+    inset: 35vh 0 auto 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    height: 30vh;
+    background: #09090b;
+    color: #fafafa;
+    font-family: var(--font-mono);
+    font-size: clamp(2.5rem, 9vw, 6rem);
+    font-weight: 700;
+  }
+
+  .intro[hidden] {
+    display: none;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    box-shadow: var(--shadow-1);
+  }
+
+  .prompt {
+    color: var(--accent);
+    margin-right: 0.5em;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 1.05em;
+    margin-left: 0.3em;
+    background: var(--text);
+    vertical-align: -0.15em;
+    animation: blink 1.1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  h1 {
+    max-width: 18ch;
+    font-size: clamp(2.4rem, 6.5vw, 4.4rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .accent {
+    color: var(--text-faint);
+  }
+
+  .br-wide {
+    display: none;
+  }
+
+  @media (min-width: 720px) {
+    h1 {
+      max-width: none;
+    }
+
+    .br-wide {
+      display: inline;
+    }
+  }
+
+  .sub {
+    max-width: 58ch;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.65;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    padding: 0;
+    list-style: none;
+  }
+
+  .cards > li {
+    display: flex;
+  }
+
+  .cards > li > :global(*) {
+    flex: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+  }
+</style>

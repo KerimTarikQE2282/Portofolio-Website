@@ -1,0 +1,18 @@
+---
+interface Props {
+  date: Date;
+  format?: 'long' | 'short';
+}
+
+const { date, format = 'long' } = Astro.props;
+
+// Fixed locale + UTC so output doesn't depend on the build machine's timezone.
+const label = date.toLocaleDateString('en-GB', {
+  timeZone: 'UTC',
+  day: 'numeric',
+  month: format === 'long' ? 'long' : 'short',
+  year: 'numeric',
+});
+---
+
+<time datetime={date.toISOString()}>{label}</time>

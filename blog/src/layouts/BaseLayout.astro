@@ -1,0 +1,113 @@
+---
+import { withBase } from '../lib/url';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Root-relative or absolute URL of an Open Graph image. */
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+}
+
+const { title, description = SITE_DESCRIPTION, ogImage, ogType = 'website' } = Astro.props;
+
+const fullTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const ogImageUrl = ogImage && Astro.site ? new URL(ogImage, Astro.site).href : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={title ?? SITE_TITLE} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+
+    <!-- Hide above-the-fold elements until the GSAP entrance runs (no flash of content).
+         Failsafe: if animations never load, show everything after 2.5s. -->
+    <script is:inline>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var r = document.documentElement;
+        r.classList.add('anim-pending');
+        setTimeout(function () { r.classList.remove('anim-pending'); }, 2500);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar"></div></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/animations.ts';
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Elements GSAP animates in on load: hidden only while .anim-pending is set. */
+  .anim-pending :is(.site-header, .hero-inner > *, .cards > li, .listing .head, .listing .count,
+    .posts > li, .listing .empty, .post-header > *, .cover, .toc, .prose > *, .wrap > *) {
+    opacity: 0;
+  }
+
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 60;
+    height: 3px;
+    pointer-events: none;
+  }
+
+  .scroll-progress__bar {
+    height: 100%;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+</style>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+    transition: top 0.15s;
+  }
+
+  .skip-link:focus {
+    top: 0.75rem;
+  }
+</style>

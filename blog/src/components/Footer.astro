@@ -1,0 +1,40 @@
+---
+import { AUTHOR, GITHUB_URL } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container inner">
+    <p>© {year} {AUTHOR}. Writeups are for educational use on systems I own or am authorized to test.</p>
+    <a href={GITHUB_URL} rel="me noopener">GitHub</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 6rem;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding-block: 2rem;
+  }
+
+  a {
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+
+  a:hover {
+    color: var(--text);
+  }
+</style>

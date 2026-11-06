@@ -1,0 +1,296 @@
+---
+import { withBase } from '../lib/url';
+import '../styles/prose.css';
+
+import type { MarkdownHeading } from 'astro';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import type { Post } from '../lib/posts';
+import { readingTime } from '../lib/posts';
+import type { Section } from '../lib/sections';
+
+interface Props {
+  post: Post;
+  section: Section;
+  headings: MarkdownHeading[];
+}
+
+const { post, section, headings } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, cover, coverAlt, draft } = post.data;
+
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const showToc = toc.length >= 3;
+
+// A JPEG at 1200px wide is what social previews expect; generated at build time.
+const ogImage = cover ? (await getImage({ src: cover, width: 1200, format: 'jpg' })).src : undefined;
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType="article">
+  <article class="container post" style={`--accent: ${section.accent}`}>
+    <header class="post-header">
+      <nav class="crumbs mono" aria-label="Breadcrumb">
+        <a href={withBase(`/${section.id}/`)}>{section.title}</a>
+        <span aria-hidden="true">/</span>
+      </nav>
+
+      <h1>{title}</h1>
+      <p class="lede">{description}</p>
+
+      <div class="meta mono">
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <span>
+              updated{' '}<FormattedDate date={updatedDate} />
+            </span>
+          )
+        }
+        <span>{readingTime(post.body)} min read</span>
+        {draft && <span class="draft-badge">Draft — not published</span>}
+      </div>
+
+      <ul class="tags" aria-label="Tags">
+        {tags.map((t) => <li class="tag">{t}</li>)}
+      </ul>
+    </header>
+
+    {
+      cover && (
+        <figure class="cover">
+          <Image
+            src={cover}
+            alt={coverAlt ?? ''}
+            widths={[720, 1100, 1600]}
+            sizes="(max-width: 1140px) 100vw, 1100px"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+      )
+    }
+
+    <div class:list={['layout', { 'has-toc': showToc }]}>
+      <div class="prose">
+        <slot />
+      </div>
+
+      {
+        showToc && (
+          <aside class="toc" aria-label="On this page">
+            <p class="toc-title mono">On this page</p>
+            <ol>
+              {toc.map((h) => (
+                <li class={`depth-${h.depth}`}>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ol>
+          </aside>
+        )
+      }
+    </div>
+
+    <footer class="post-footer">
+      <a href={withBase(`/${section.id}/`)} class="back">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        All {section.title} posts
+      </a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<script>
+  // Progressive enhancement: language label + copy button on Shiki blocks.
+  // Without JS the plain highlighted <pre> still renders fine.
+  const COPY = 'Copy';
+  for (const pre of document.querySelectorAll<HTMLPreElement>('.prose pre.astro-code')) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block';
+
+    const bar = document.createElement('div');
+    bar.className = 'code-block__bar';
+
+    const lang = document.createElement('span');
+    const language = pre.dataset.language;
+    lang.textContent = language && language !== 'plaintext' ? language : 'text';
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'code-block__copy';
+    button.textContent = COPY;
+    button.setAttribute('aria-label', 'Copy code to clipboard');
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pre.querySelector('code')?.innerText ?? pre.innerText);
+        button.textContent = 'Copied';
+        button.dataset.copied = '';
+      } catch {
+        button.textContent = 'Failed';
+      }
+      setTimeout(() => {
+        button.textContent = COPY;
+        delete button.dataset.copied;
+      }, 1800);
+    });
+
+    bar.append(lang, button);
+    pre.replaceWith(wrapper);
+    wrapper.append(bar, pre);
+  }
+</script>
+
+<style>
+  .post {
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .post-header {
+    max-width: var(--prose-width);
+  }
+
+  .crumbs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+  }
+
+  .crumbs a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .lede {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.6;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1.25rem;
+    margin-top: 1.5rem;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cover {
+    margin-top: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-3);
+  }
+
+  .cover :global(img) {
+    width: 100%;
+  }
+
+  .layout {
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 1140px) {
+    .layout.has-toc {
+      display: grid;
+      grid-template-columns: minmax(0, var(--prose-width)) 220px;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+  }
+
+  .toc {
+    display: none;
+  }
+
+  @media (min-width: 1140px) {
+    .toc {
+      display: block;
+      position: sticky;
+      top: 5.5rem;
+      align-self: start;
+      max-height: calc(100dvh - 7rem);
+      overflow-y: auto;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border);
+    }
+  }
+
+  .toc-title {
+    margin-bottom: 0.75rem;
+    color: var(--text-faint);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .toc ol {
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
+  }
+
+  .toc li + li {
+    margin-top: 0.45rem;
+  }
+
+  .toc .depth-3 {
+    padding-left: 0.85rem;
+  }
+
+  .toc a {
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+
+  .toc a:hover {
+    color: var(--accent);
+  }
+
+  .post-footer {
+    max-width: var(--prose-width);
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+
+  .back:hover {
+    color: var(--accent);
+  }
+</style>

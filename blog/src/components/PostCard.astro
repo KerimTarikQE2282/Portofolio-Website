@@ -1,0 +1,152 @@
+---
+import { withBase } from '../lib/url';
+import { Image } from 'astro:assets';
+import type { Post } from '../lib/posts';
+import { readingTime } from '../lib/posts';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  post: Post;
+  accent: string;
+}
+
+const { post, accent } = Astro.props;
+const { title, description, pubDate, tags, cover, coverAlt, draft } = post.data;
+const href = withBase(`/${post.collection}/${post.id}/`);
+---
+
+<article class="post" style={`--post-accent: ${accent}`}>
+  <div class="text">
+    <p class="meta mono">
+      <FormattedDate date={pubDate} />
+      <span aria-hidden="true">·</span>
+      <span>{readingTime(post.body)} min read</span>
+      {draft && <span class="draft-badge">Draft</span>}
+    </p>
+    <h2>
+      <a href={href}>{title}</a>
+    </h2>
+    <p class="description">{description}</p>
+    <ul class="tags" aria-label="Tags">
+      {tags.map((t) => <li class="tag">{t}</li>)}
+    </ul>
+  </div>
+  {
+    cover && (
+      <div class="thumb">
+        <Image src={cover} alt={coverAlt ?? ''} widths={[320, 640]} sizes="(max-width: 640px) 100vw, 320px" />
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .post {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--highlight), var(--shadow-1);
+    transition: border-color 0.25s, box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+  }
+
+  .post:hover,
+  .post:focus-within {
+    border-color: color-mix(in oklab, var(--post-accent) 25%, var(--border));
+    box-shadow: var(--highlight), var(--shadow-2);
+    transform: translateY(-2px);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-faint);
+    font-size: 0.78rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  /* Stretched link: whole card is clickable, but only the title is the link in the a11y tree */
+  h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  h2 a:focus-visible {
+    outline: none;
+  }
+
+  h2 a:focus-visible::after {
+    outline: 2px solid var(--post-accent);
+    outline-offset: 3px;
+  }
+
+  .post:hover h2 a {
+    color: var(--post-accent);
+  }
+
+  .description {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .thumb {
+    width: 200px;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .thumb :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 640px) {
+    .post {
+      grid-template-columns: 1fr;
+      padding: 1.2rem;
+    }
+
+    .thumb {
+      order: -1;
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post {
+      transition: none;
+    }
+
+    .post:hover,
+    .post:focus-within {
+      transform: none;
+    }
+  }
+</style>

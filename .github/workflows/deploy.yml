@@ -18,16 +18,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - name: Install site dependencies
+        run: npm ci
 
-      - run: npm run build
+      - name: Install blog dependencies
+        working-directory: ./blog
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Build site and blog
+        run: npm run build
+        env:
+          BLOG_DIR: ${{ github.workspace }}/blog
+
+      - name: Add custom domain
+        run: echo "kimpax.dev" > out/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:

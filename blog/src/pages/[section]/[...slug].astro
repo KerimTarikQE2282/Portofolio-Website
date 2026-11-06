@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import { sections, type Section } from '../../lib/sections';
+import { getPosts, type Post } from '../../lib/posts';
+
+// Rest param so nested folders work too, e.g. labs/ad-lab/part-2/index.md → /labs/ad-lab/part-2/
+export const getStaticPaths = (async () => {
+  const paths = await Promise.all(
+    sections.map(async (section) => {
+      const posts = await getPosts(section.id);
+      return posts.map((post) => ({
+        params: { section: section.id, slug: post.id },
+        props: { post, section },
+      }));
+    }),
+  );
+  return paths.flat();
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: Post;
+  section: Section;
+}
+
+const { post, section } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<PostLayout post={post} section={section} headings={headings}>
+  <Content />
+</PostLayout>
