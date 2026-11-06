@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24  # Astro needs Node >= 22.23.4; 24 is the current LTS
           cache: npm
 
       - name: Install site dependencies
