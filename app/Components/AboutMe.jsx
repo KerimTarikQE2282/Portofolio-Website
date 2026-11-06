@@ -1,275 +1,165 @@
-import { ArrowDown, ArrowRight, Calendar, Calendar1, CalendarDays, Code, Heart, MapPin } from 'lucide-react'
+import { ArrowDown, ArrowRight, CalendarDays, MapPin, ShieldCheck, Radar, Network, Terminal } from 'lucide-react'
 import React from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Header from './subComponents/Header';
-import Link from 'next/link';
-import { SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiPython, SiDjango, SiMongodb, SiAdobeillustrator, SiAdobephotoshop, SiFlutter, SiGit, SiFigma } from "react-icons/si";
+import { SiKalilinux, SiBurpsuite, SiMetasploit, SiWireshark, SiPython, SiGnubash, SiLinux, SiHackthebox, SiOwasp } from "react-icons/si";
+
+const icon = "h-5 w-5 flex-none text-white";
+
+const skills = [
+  { name: "Kali Linux", icon: <SiKalilinux className={icon} /> },
+  { name: "Burp Suite", icon: <SiBurpsuite className={icon} /> },
+  { name: "Metasploit", icon: <SiMetasploit className={icon} /> },
+  { name: "Nmap", icon: <Radar className={icon} /> },
+  { name: "Active Directory", icon: <Network className={icon} /> },
+  { name: "Wireshark", icon: <SiWireshark className={icon} /> },
+  { name: "Python", icon: <SiPython className={icon} /> },
+  { name: "Bash", icon: <SiGnubash className={icon} /> },
+  { name: "PowerShell", icon: <Terminal className={icon} /> },
+  { name: "Linux", icon: <SiLinux className={icon} /> },
+  { name: "Hack The Box", icon: <SiHackthebox className={icon} /> },
+  { name: "OWASP", icon: <SiOwasp className={icon} /> },
+];
+
+const facts = [
+  { icon: <MapPin className="flex-none" />, text: "Addis Ababa, Ethiopia" },
+  { icon: <CalendarDays className="flex-none" />, text: "4 years in tech, now focused on offensive security" },
+  { icon: <ShieldCheck className="flex-none" />, text: "Penetration Tester · OSCP · HTB CPTS" },
+];
+
+const services = [
+  "External & internal network penetration testing",
+  "Web application testing against the OWASP Top 10",
+  "Active Directory attack-path assessments",
+  "Clear pentest reports with prioritised remediation",
+];
+
+const stats = [
+  { big: "OSCP", small: "OffSec Certified Professional" },
+  { big: "CPTS", small: "HTB Certified Penetration Testing Specialist" },
+  { big: "Web · Net · AD", small: "Assessment Coverage" },
+];
 
 function AboutMe() {
-    const location=React.useRef(null)
-    const Xp=React.useRef(null)
-    const Skill=React.useRef(null)
-    const abtMe=React.useRef(null)
-    const skillLevels=React.useRef(null)
-    const Skill1=React.useRef(null)
-    const Skill2=React.useRef(null)
-    const Skill3=React.useRef(null)
-    const Skill4=React.useRef(null)
-    const Skill5=React.useRef(null)
-    const Skill6=React.useRef(null)
-    const Skill7=React.useRef(null)
-    const Skill8=React.useRef(null)
-    const Skill9=React.useRef(null)
-    const Skill10=React.useRef(null)
-    const Skill11=React.useRef(null)
-    const Skill12=React.useRef(null)
+  const root = React.useRef(null);
 
-    const Service1=React.useRef(null)
-    const Service2=React.useRef(null)
-    const Service3=React.useRef(null)
-    const Service4=React.useRef(null)
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
 
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // Facts, bio and services slide in from the left with a "back" ease
+      gsap.utils.toArray("[data-slide]", root.current).forEach((el) => {
+        gsap.from(el, {
+          x: -80,
+          opacity: 0,
+          duration: 1,
+          ease: "back",
+          scrollTrigger: { trigger: el, start: "top 85%" },
+        });
+      });
 
-    useGSAP(()=>{
-        gsap.registerPlugin(ScrollTrigger) 
-        const elements = [location.current, Xp.current, Skill.current,abtMe.current,Service1.current,Service2.current,Service3.current,Service4.current];
-        const skillRefs=[Skill1.current, Skill2.current, Skill3.current, Skill4.current, Skill5.current, Skill6.current, Skill7.current, Skill8.current, Skill9.current, Skill10.current, Skill11.current, Skill12.current]  ;
-        let mm=gsap.matchMedia();
-        mm.add(("(min-width: 1000px)"),()=>{
-          elements.forEach((el, index) => {
-            if(el ==Service1.current || el ==Service2.current || el ==Service3.current || el ==Service4.current){
-                gsap.fromTo(el, {
-                    x:-300
-                },
-                    {
-                    x: 0,
-                    duration: 1,
-                    ease: "back",
-                    scrollTrigger: {
-                      trigger: el, // Use each element as its own trigger
-                      start: "top 80%", // Adjust start position as needed
-                      //markers: true, // Debug markers
-                    },
-                  }); 
-            }
-            else{
-                 gsap.to(el, {
-                    x: '35vw',
-                    duration: 1,
-                    ease: "back",
-                    scrollTrigger: {
-                      trigger: el, // Use each element as its own trigger
-                      start: "top 80%", // Adjust start position as needed
-                      //markers: true, // Debug markers
-                    },
-                  }); 
-           }
-        
-           
-          });
-        })
-      
+      // Skill pills rise in one after another
+      gsap.from(gsap.utils.toArray("[data-skill]", root.current), {
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        ease: "back",
+        stagger: 0.06,
+        scrollTrigger: { trigger: root.current.querySelector("[data-skills]"), start: "top 85%" },
+      });
 
-          gsap.from(skillLevels.current, {
-            x: 1530,
-            duration: 1,
-            ease: "back",
-            scrollTrigger: {
-              trigger: skillLevels.current, // Use each element as its own trigger
-              start: "top 80%", // Adjust start position as needed
-              //markers: true, // Debug markers
-            },
-          });
-          gsap.fromTo(skillRefs,
-            {
-              y:50
-          },{
-            y:0,
-            stagger:0.5,
-            duration:1,
-            ease:"back",
-            scrollTrigger:{
-              trigger:Skill1.current,
-              start:"top 80%",
-              end:"bottom+=100% center",
-              scrub:1,
-              
-            }
-          })
-    })
+      // Stat cards
+      gsap.from(gsap.utils.toArray("[data-stat]", root.current), {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "back",
+        stagger: 0.15,
+        scrollTrigger: { trigger: root.current.querySelector("[data-stats]"), start: "top 85%" },
+      });
+    });
 
-
-
-    const skillsJson = [
-        {
-          name: "React.js",
-          icon: <SiReact className="text-white w-5 h-5" />,
-          ref: Skill1
-        },
-        {
-          name: "Next.js",
-          icon: <SiNextdotjs className="text-white w-5 h-5" />,
-          ref: Skill2
-        },
-        {
-          name: "Node JS",
-          icon: <SiNodedotjs className="text-white w-5 h-5" />,
-          ref: Skill3
-        },
-        {
-          name: "Express",
-          icon: <SiExpress className="text-white w-5 h-5" />,
-          ref: Skill4
-        },
-        {
-          name: "Python",
-          icon: <SiPython className="text-white w-5 h-5" />,
-          ref: Skill5
-        },
-        {
-          name: "Django",
-          icon: <SiDjango className="text-white w-5 h-5" />,
-          ref: Skill6
-        },
-        {
-          name: "MongoDB",
-          icon: <SiMongodb className="text-white w-5 h-5" />,
-          ref: Skill7
-        },
-        {
-          name: "Illustrator",
-          icon: <SiAdobeillustrator className="text-white w-5 h-5" />,
-          ref: Skill8
-        },
-        {
-          name: "PhotoShop",
-          icon: <SiAdobephotoshop className="text-white w-5 h-5" />,
-          ref: Skill9
-        },
-        {
-          name: "Flutter",
-          icon: <SiFlutter className="text-white w-5 h-5" />,
-          ref: Skill10
-        },
-        {
-          name: "Git",
-          icon: <SiGit className="text-white w-5 h-5" />,
-          ref: Skill11
-        },
-        {
-          name: "Figma",
-          icon: <SiFigma className="text-white w-5 h-5" />,
-          ref: Skill12
-        }
-      ];
-      
-   const skills= skillsJson.map(element=>{
-        return(
-          <div 
-          className='
-              lg:w-[10dvw] w-[30dvw] 
-              h-[50px] 
-              bg-black 
-              flex 
-              justify-center 
-              items-center 
-              rounded-full 
-              flex-row 
-              gap-2 
-              p-2 
-              sm:w-full sm:h-auto sm:flex-col sm:gap-1
-          ' 
-          ref={element.ref}
-      >
-          <div className='text-center'>{element.icon}</div>
-          <p className='text-white text-sm sm:text-xs'>{element.name}</p>
-      </div>
-      
-        )
-    })
+    return () => mm.revert();
+  }, { scope: root });
 
   return (
-    <div className='overflow-hidden lg:h-[150vh] '>
-       
-        <div className='flex lg:flex-row flex-col py-[10vh] '>
-      <div className='w-full h-screen relative lg:left-0 left-40'>
-        <div className='h-[35vh]'>
-        
-        </div>
-        <div className='relative lg:bottom-10 bottom-[17vh] lg:right-[33.5dvw] right-[38dvw]  flex flex-col gap-3 '>
-            <div className='flex flex-row gap-2' ref={location}>
-         <MapPin/> <p className='mt-1'>Addis Ababa,Ethiopia</p>
-         </div>
-         <div className='flex flex-row gap-2' ref={Xp}>
-         <CalendarDays/> <p className='mt-1'>4 years of experience</p>
-         </div>
-         <div className='flex flex-row gap-2' ref={Skill}>
-         <Code/> <p className='mt-1'>Full stack developer Specializing in react</p>
-         </div>
+    <section ref={root} className="mx-auto max-w-7xl py-20 md:py-28">
+      <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+        {/* Left: who I am */}
+        <div className="flex flex-col gap-8">
+          <ul className="flex flex-col gap-3">
+            {facts.map((f) => (
+              <li key={f.text} className="flex items-start gap-3" data-slide>
+                {f.icon}
+                <span>{f.text}</span>
+              </li>
+            ))}
+          </ul>
 
+          <p className="max-w-prose leading-relaxed" data-slide>
+            I&apos;m a penetration tester based in Addis Ababa, holding the OffSec OSCP and the Hack The Box CPTS. I find and
+            exploit weaknesses in networks, web applications and Active Directory environments before real attackers do, then
+            turn the results into clear reports and practical fixes. My background building full-stack software means I
+            understand the systems I test from the inside.
+          </p>
+
+          <a
+            data-slide
+            className="flex w-fit items-center gap-2 rounded-lg border-4 border-transparent bg-black px-4 py-3 text-white transition-colors duration-100 hover:border-blue-900"
+            href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"
+          >
+            <ArrowDown /> Portofolio
+          </a>
         </div>
-        <p className='relative lg:right-[33.5dvw] right-[38dvw] lg:w-[35dvw] w-[80dvw] lg:bottom-0 bottom-[13vh]' ref={abtMe}>As a passionate developer based in the bustling tech hub of Addis Ababa, I blend Ethiopian ingenuity with modern innovation to craft impactful solutions. I specialize in designing and building scalable web applications that seamlessly merge advanced technologies with user-friendly interfaces.</p>
-            <Link className=' bg-black rounded-lg flex flex-row text-white p-3 gap-2 relative lg:w-[10dvw] w-[40dvw] lg:left-7 left-[-37dvw] lg:top-10 top-[-8vh] hover:border-4  hover:border-blue-900  transition-all duration-100 ease-in  ' href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"> <ArrowDown /> Portofolio</Link>
+
+        {/* Right: skills and services */}
+        <div className="flex flex-col gap-14">
+          <div>
+            <h2 className="text-3xl md:text-4xl">Skills &amp; Tools</h2>
+            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4" data-skills>
+              {skills.map((s) => (
+                <li
+                  key={s.name}
+                  data-skill
+                  className="flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-black px-3 py-2 text-center text-sm text-white"
+                >
+                  {s.icon}
+                  <span className="leading-tight">{s.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl">Services</h2>
+            <ul className="mt-4 flex flex-col gap-3">
+              {services.map((s) => (
+                <li key={s} className="flex items-start gap-2" data-slide>
+                  <ArrowRight className="mt-0.5 flex-none" />
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-      <div className='w-full h-[100vh] '>
-        <div className='relative left-[4dvw] lg:top-[10vh] top-[-28vh]'>
-            <p className='lg:text-3xl text-4xl'>skills</p>
-            <div className='mt-10 flex flex-row gap-5 lg:w-[40dvw] w-[80dvw] flex-wrap'>
-{/* skills here */}
-{skills}
 
+      {/* Certification stat cards */}
+      <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10" data-stats>
+        {stats.map((s, i) => (
+          // GSAP animates the wrapper; the hover zoom lives on the inner card so they don't fight over `transform`
+          <div key={s.big} data-stat className={i === stats.length - 1 ? "sm:col-span-2 lg:col-span-1" : ""}>
+            <div className="flex h-full min-h-[11rem] flex-col items-center justify-center rounded-xl border-4 border-transparent bg-black p-6 text-center text-white transition duration-300 hover:scale-105 hover:border-white hover:bg-blue-800">
+              <p className="text-4xl lg:text-5xl">{s.big}</p>
+              <p className="mt-4 text-lg lg:text-2xl">{s.small}</p>
             </div>
-            
-        </div>
-        <div className='relative left-[4dvw] lg:top-[15vh] top-[-21vh]'>
-            <p className='text-2xl mt-[5vh]'>Services</p>
-           <div className='flex flex-row gap-1 mt-3 ' ref={Service1} >
-           <ArrowRight />
-           <p>Make amazing react Native Expo Apps</p>
-           </div>
-           <div className='flex flex-row gap-1 mt-3 ' ref={Service2}>
-           <ArrowRight />
-           <p>Make amazing react Websites and WebApps</p>
-           </div>
-           <div className='flex flex-row gap-1 mt-3 '   ref={Service3}>
-           <ArrowRight />
-           <p>Make amazing Next Js websites and Web Apps</p>
-           </div>
-           <div className='flex flex-row gap-1 mt-3 ' ref={Service4}>
-           <ArrowRight />
-           <p>Make amazing Express and Node Backends with MongoDb websites</p>
-           </div>
-           
-            
-        </div>
-
-
+          </div>
+        ))}
       </div>
-    </div>
-    <div
-  className="flex flex-wrap justify-center gap-10 relative z-10 lg:mt-[-1vh] mt-[-34vh] lg:right-[-0.5dvw]"
-  ref={skillLevels}
->
-  <div className="w-[90dvw] sm:w-[40dvw] lg:w-[25dvw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
-    <p className="text-3xl sm:text-4xl lg:text-5xl text-center">Intermediate</p>
-    <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Professional Level</p>
-  </div>
-
-  <div className="w-[90dvw] sm:w-[40dvw] lg:w-[25dvw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
-    <p className="text-3xl sm:text-4xl lg:text-5xl text-center">20+</p>
-    <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Clients</p>
-  </div>
-
-  <div className="w-[90dvw] sm:w-[40dvw] lg:w-[25dvw] h-[20vh] sm:h-[25vh] bg-black text-white rounded-xl hover:border-4 hover:scale-110 hover:bg-blue-800 duration-300 p-4 flex flex-col justify-center items-center">
-    <p className="text-3xl sm:text-4xl lg:text-5xl text-center">30+</p>
-    <p className="text-lg sm:text-xl lg:text-2xl text-center mt-4">Projects Worked On</p>
-  </div>
-</div>
-
-    </div>
-  )
+    </section>
+  );
 }
 
 export default AboutMe

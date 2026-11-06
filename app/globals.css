@@ -68,3 +68,32 @@
 }
 
 
+
+@layer base {
+  /* Slide-in animations start off-screen; clip them so the page never scrolls sideways.
+     `clip` (unlike `hidden`) doesn't create a scroll container, so sticky/fixed still work. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Bigger, clearer tap targets and no grey flash on tap for touch devices */
+  a,
+  button,
+  select {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
