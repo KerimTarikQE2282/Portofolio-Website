@@ -87,7 +87,7 @@ function TimelineItem({ item, index, tab }) {
       className="relative mb-6"
     >
       {/* Timeline dot */}
-      <div className="absolute -left-[33px] top-5 h-4 w-4 rounded-full bg-blue-500 sm:-left-[37px]"></div>
+      <div className="absolute -left-[33px] top-5 h-4 w-4 rounded-full bg-terminal sm:-left-[37px]"></div>
 
       <Card className="border border-gray-200 bg-white shadow-lg">
         {item.link ? (
@@ -109,7 +109,7 @@ export default function ExperienceSection() {
 
   return (
     <section className="mx-auto max-w-2xl py-12 text-black md:py-20">
-      <h2 className="mb-10 text-2xl font-bold md:mb-14">Experience, Education &amp; Certifications</h2>
+      <h2 className="mb-10 text-2xl font-bold md:mb-14"><span className="mr-2 font-mono text-terminal" aria-hidden="true">~/</span>Experience, Education &amp; Certifications</h2>
 
       {/* Tabs */}
       <div className="mb-8 flex w-full gap-1 rounded-lg bg-gray-200 p-1.5 sm:w-fit sm:gap-2 sm:p-2" role="tablist">

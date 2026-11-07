@@ -30,7 +30,7 @@ export default function ProjectCard({
       <div className="flex flex-col">
         <div className="mb-2 flex flex-wrap items-center gap-2">
           <p className="text-xs font-semibold uppercase tracking-wider sm:text-sm">{category}</p>
-          <span className="h-2 w-2 rounded-full bg-blue-500"></span>
+          <span className="h-2 w-2 rounded-full bg-terminal"></span>
           <p className="text-xs font-semibold uppercase tracking-wider sm:text-sm">{year}</p>
         </div>
 

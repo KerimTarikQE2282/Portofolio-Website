@@ -185,7 +185,7 @@ export default function Projects() {
   return (
     <section className="mx-auto flex w-full max-w-7xl flex-col gap-12 py-12 md:gap-20 md:py-20">
       <div className="flex flex-col items-center gap-8">
-        <h2 className="text-3xl font-bold">Projects</h2>
+        <h2 className="text-3xl font-bold"><span className="mr-2 font-mono text-terminal" aria-hidden="true">~/</span>Projects</h2>
 
         {/* Tablets and up: button group */}
         <div className="hidden gap-2 rounded-lg bg-gray-200 p-2 sm:flex" role="tablist">

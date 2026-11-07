@@ -97,3 +97,33 @@
     }
   }
 }
+
+/* Terminal touches shared with the blog */
+@layer components {
+  /* Faint dot grid fading out from the top-left */
+  .dot-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgb(24 24 27 / 0.12) 1px, transparent 0);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 30%, transparent 75%);
+  }
+
+  /* Blinking block cursor */
+  .term-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    margin-left: 0.25em;
+    background: currentColor;
+    vertical-align: -0.15em;
+    animation: term-blink 1.1s steps(1) infinite;
+  }
+
+  @keyframes term-blink {
+    50% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .term-cursor { animation: none; }
+  }
+}

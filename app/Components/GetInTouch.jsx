@@ -46,7 +46,7 @@ function Contact() {
     <section className="scroll-mt-6 pt-12 md:pt-20" id="Contact">
       <div className="mx-4 grid max-w-6xl gap-12 rounded-md bg-white p-6 shadow-lg sm:mx-8 sm:p-8 lg:mx-auto lg:grid-cols-2 lg:gap-16 lg:p-12">
         <div>
-          <h2 className="text-4xl font-bold lg:text-5xl">Get In Touch</h2>
+          <h2 className="text-4xl font-bold lg:text-5xl"><span className="mr-2 font-mono text-terminal" aria-hidden="true">~/</span>Get In Touch</h2>
           <p className="mt-6 max-w-prose text-gray-700 lg:mt-10">
             Need a penetration test, an Active Directory assessment, or a second set of eyes on your web application?
             Get in touch to discuss scope and rules of engagement. All testing is carried out only with written authorization.
@@ -128,7 +128,7 @@ function Contact() {
 
             <button
               type="submit"
-              className="text-white bg-gradient-to-r bg-black hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-6 py-3 mt-2 w-full sm:w-auto"
+              className="text-white bg-gradient-to-r bg-black hover:bg-gradient-to-br focus:ring-4 focus:outline-none hover:bg-terminal focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-base px-6 py-3 mt-2 w-full sm:w-auto"
             >
               Send Message
             </button>

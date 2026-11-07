@@ -107,7 +107,7 @@ function AboutMe() {
 
           <a
             data-slide
-            className="flex w-fit items-center gap-2 rounded-lg border-4 border-transparent bg-black px-4 py-3 text-white transition-colors duration-100 hover:border-blue-900"
+            className="flex w-fit items-center gap-2 rounded-lg border-4 border-transparent bg-black px-4 py-3 text-white transition-colors duration-100 hover:border-terminal"
             href="https://drive.usercontent.google.com/download?authuser=0&export=download&id=1BHgqgwwfa2cGDUrNMEtYDIwNoA8mULeu"
           >
             <ArrowDown /> Portofolio
@@ -117,7 +117,7 @@ function AboutMe() {
         {/* Right: skills and services */}
         <div className="flex flex-col gap-14">
           <div>
-            <h2 className="text-3xl md:text-4xl">Skills &amp; Tools</h2>
+            <h2 className="text-3xl md:text-4xl"><span className="mr-2 font-mono text-terminal" aria-hidden="true">~/</span>Skills &amp; Tools</h2>
             <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4" data-skills>
               {skills.map((s) => (
                 <li
@@ -133,7 +133,7 @@ function AboutMe() {
           </div>
 
           <div>
-            <h2 className="text-2xl">Services</h2>
+            <h2 className="text-2xl"><span className="mr-2 font-mono text-terminal" aria-hidden="true">~/</span>Services</h2>
             <ul className="mt-4 flex flex-col gap-3">
               {services.map((s) => (
                 <li key={s} className="flex items-start gap-2" data-slide>
@@ -151,7 +151,7 @@ function AboutMe() {
         {stats.map((s, i) => (
           // GSAP animates the wrapper; the hover zoom lives on the inner card so they don't fight over `transform`
           <div key={s.big} data-stat className={i === stats.length - 1 ? "sm:col-span-2 lg:col-span-1" : ""}>
-            <div className="flex h-full min-h-[11rem] flex-col items-center justify-center rounded-xl border-4 border-transparent bg-black p-6 text-center text-white transition duration-300 hover:scale-105 hover:border-white hover:bg-blue-800">
+            <div className="flex h-full min-h-[11rem] flex-col items-center justify-center rounded-xl border-4 border-transparent bg-black p-6 text-center text-white transition duration-300 hover:scale-105 hover:border-white hover:bg-terminal">
               <p className="text-4xl lg:text-5xl">{s.big}</p>
               <p className="mt-4 text-lg lg:text-2xl">{s.small}</p>
             </div>

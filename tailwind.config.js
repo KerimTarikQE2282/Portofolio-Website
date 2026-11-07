@@ -8,7 +8,11 @@ module.exports = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			mono: ['var(--font-mono)', 'ui-monospace', 'Cascadia Code', 'SF Mono', 'Menlo', 'Consolas', 'monospace']
+  		},
   		colors: {
+  			terminal: '#0f766e',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

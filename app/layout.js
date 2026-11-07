@@ -1,4 +1,12 @@
+import localFont from "next/font/local";
 import "./globals.css";
+
+// Monospace face for the terminal-style details (prompts, cursor, tags), shared look with the blog.
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-mono",
+  weight: "100 900",
+});
 
 
 export const metadata = {
@@ -16,7 +24,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={geistMono.variable}>
       <body >
         {children}
       </body>

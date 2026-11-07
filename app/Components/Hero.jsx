@@ -24,6 +24,7 @@ function Hero() {
     const scroll = React.useRef(null);
     const scrollIcon = React.useRef(null);
     const lines = React.useRef([]);
+    const typed = React.useRef(null);
 
     useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -40,6 +41,18 @@ function Hero() {
 
             // Name card fades in after the welcome bar, then shrinks and lightens as you scroll away
             gsap.fromTo(card.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, delay: 2 });
+
+            // Typewriter for the `whoami` prompt, once the card is in
+            const text = typed.current.dataset.text;
+            const state = { n: 0 };
+            typed.current.textContent = '';
+            gsap.to(state, {
+                n: text.length,
+                duration: text.length * 0.08,
+                delay: 2.6,
+                ease: 'none',
+                onUpdate: () => (typed.current.textContent = text.slice(0, Math.round(state.n))),
+            });
             gsap.to(card.current, {
                 scale: 0.85,
                 yPercent: 25,
@@ -64,13 +77,16 @@ function Hero() {
     return (
         <section ref={hero} className="relative h-[100svh] min-h-[32rem] overflow-hidden">
 
+            {/* Faint dot grid, like the blog hero */}
+            <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+
             {/* Decorative diagonal skill lines */}
             <div className="pointer-events-none absolute inset-0 select-none" aria-hidden="true">
                 {LINES.map((pos, i) => (
                     <p
                         key={i}
                         ref={(el) => (lines.current[i] = el)}
-                        className="absolute origin-top-left rotate-45 whitespace-nowrap text-3xl text-gray-600 sm:text-4xl md:text-6xl"
+                        className="absolute origin-top-left rotate-45 whitespace-nowrap font-mono text-3xl text-gray-600 sm:text-4xl md:text-6xl"
                         style={pos}
                     >
                         {SKILLS}
@@ -81,10 +97,10 @@ function Hero() {
             {/* Welcome bar */}
             <div
                 ref={welcome}
-                className="absolute inset-x-0 top-[35%] z-20 flex h-[30%] scale-x-0 items-center justify-center bg-black text-6xl font-bold text-white md:text-8xl"
+                className="absolute inset-x-0 top-[35%] z-20 flex h-[30%] scale-x-0 items-center justify-center bg-black font-mono text-5xl font-bold text-white md:text-8xl"
                 aria-hidden="true"
             >
-                Welcome
+                <span><span className="text-green-400">~/</span>welcome</span>
             </div>
 
             {/* Name card */}
@@ -101,6 +117,14 @@ function Hero() {
                         className="h-24 w-24 flex-none rounded-full object-cover md:h-28 md:w-28"
                     />
                     <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
+                        <p className="font-mono text-sm text-gray-400 md:text-base">
+                            <span className="text-green-400">kerim@kali</span>:<span className="text-sky-400">~</span>$ whoami
+                            <br />
+                            <span ref={typed} data-text="penetration_tester --oscp --cpts">
+                                penetration_tester --oscp --cpts
+                            </span>
+                            <span className="term-cursor text-green-400" aria-hidden="true" />
+                        </p>
                         <h1 className="text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">Hi, I&apos;m Kerim</h1>
                         <div className="flex gap-6">
                             <a href="#" aria-label="GitHub" className="p-1 transition-transform hover:scale-110">
@@ -122,7 +146,7 @@ function Hero() {
                 ref={scroll}
                 className="absolute inset-x-0 bottom-[max(1.5rem,env(safe-area-inset-bottom))] z-10 flex flex-col items-center gap-2"
             >
-                <p>Scroll Down</p>
+                <p className="font-mono text-sm">scroll --down</p>
                 <span ref={scrollIcon}>
                     <ArrowBigDownDash className="h-10 w-10" />
                 </span>
