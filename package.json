@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npm run build:blog || echo \"[predev] Blog build failed - /blog will not work. Astro needs Node >= 22.23.4.\"",
     "dev": "next dev",
     "build:blog": "node scripts/build-blog.mjs",
     "prebuild": "npm run build:blog",

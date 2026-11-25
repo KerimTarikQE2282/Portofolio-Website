@@ -1,0 +1,196 @@
+---
+// End-of-post signup: email newsletter (via Buttondown) or, for readers who'd rather
+// not share an email, a link to follow on Medium. Configure both in src/consts.ts.
+import { BUTTONDOWN_USERNAME, MEDIUM_URL } from '../consts';
+import { withBase } from '../lib/url';
+
+const hasNewsletter = BUTTONDOWN_USERNAME !== '';
+if (!hasNewsletter) {
+  console.warn('[subscribe] BUTTONDOWN_USERNAME is empty in src/consts.ts: the email form will not work.');
+}
+const action = `https://buttondown.com/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`;
+---
+
+<section class="subscribe" aria-labelledby="subscribe-title">
+  <p class="eyebrow mono">Stay in the loop</p>
+  <h2 id="subscribe-title">Get the next post in your inbox</h2>
+  <p class="intro">
+    One email when a new writeup goes live. No spam, unsubscribe anytime.
+  </p>
+
+  <form class="form" action={action} method="post" target="_blank" data-configured={hasNewsletter ? '' : undefined}>
+        <label for="subscribe-email" class="visually-hidden">
+          Email address
+        </label>
+        <input
+          id="subscribe-email"
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="you@example.com"
+        />
+        <input type="hidden" name="embed" value="1" />
+        <button type="submit">Subscribe</button>
+        <p class="status" role="status" aria-live="polite" />
+  </form>
+
+  <div class="alt">
+    <span class="or mono">Rather not share your email?</span>
+    <a href={MEDIUM_URL} target="_blank" rel="me noopener" class="medium">
+      Follow me on Medium
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M5 11L11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <a href={withBase('/rss.xml')} class="rss mono">RSS</a>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.subscribe .form');
+  const status = form?.querySelector<HTMLParagraphElement>('.status');
+  form?.addEventListener('submit', (e) => {
+    if (!form.hasAttribute('data-configured')) {
+      e.preventDefault();
+      status!.textContent = 'Newsletter not configured yet: set BUTTONDOWN_USERNAME in src/consts.ts.';
+      return;
+    }
+    // The form itself posts to Buttondown in a new tab; reset it and say what happens next.
+    setTimeout(() => {
+      form.reset();
+      status!.textContent = 'Almost done! Check your inbox to confirm your subscription.';
+    });
+  });
+</script>
+
+<style>
+  .subscribe {
+    max-width: var(--prose-width);
+    margin-top: 4rem;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    border: 1px solid color-mix(in oklab, var(--accent) 25%, var(--border));
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(120% 140% at 100% 0%, color-mix(in oklab, var(--accent) 9%, transparent), transparent 60%),
+      var(--surface);
+    box-shadow: var(--shadow-2);
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin-top: 0.5rem;
+    font-size: clamp(1.35rem, 3vw, 1.65rem);
+    font-weight: 600;
+  }
+
+  .intro {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  input[type='email'] {
+    flex: 1 1 16rem;
+    min-width: 0;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--bg-raised);
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input[type='email']:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent);
+  }
+
+  button {
+    flex: 0 0 auto;
+    padding: 0.7rem 1.25rem;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.15s;
+  }
+
+  button:hover {
+    filter: brightness(1.08);
+  }
+
+  button:active {
+    transform: translateY(1px);
+  }
+
+  .status {
+    flex-basis: 100%;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .alt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border);
+    font-size: 0.9rem;
+  }
+
+  .or {
+    color: var(--text-faint);
+    font-size: 0.8rem;
+  }
+
+  .medium {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 50%, transparent);
+    text-underline-offset: 4px;
+    transition: color 0.15s;
+  }
+
+  .medium:hover {
+    color: var(--accent);
+  }
+
+  .rss {
+    margin-left: auto;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+  }
+
+  .rss:hover {
+    color: var(--accent);
+  }
+</style>

@@ -6,6 +6,7 @@ import type { MarkdownHeading } from 'astro';
 import { Image, getImage } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Subscribe from '../components/Subscribe.astro';
 import type { Post } from '../lib/posts';
 import { readingTime } from '../lib/posts';
 import type { Section } from '../lib/sections';
@@ -90,6 +91,8 @@ const ogImage = cover ? (await getImage({ src: cover, width: 1200, format: 'jpg'
         )
       }
     </div>
+
+    <Subscribe />
 
     <footer class="post-footer">
       <a href={withBase(`/${section.id}/`)} class="back">
